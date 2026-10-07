@@ -1,0 +1,1401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SWISS DETOX store audit</title>
+<meta name="description" content="Store audit of eu.swissdetox.com: 60 fixes, 110.5 hours, $4,420.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%23262626%27/%3E%3Cpath d=%27M9 17l5 5 9-11%27 fill=%27none%27 stroke=%27%23fff%27 stroke-width=%273%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#EFEFEF; --ink:#262626; --muted:#4d4d4d; --soft:#777; --line:#6d6d6d;
+  --taupe:#CFC9C1; --taupe-b:#9E978D; --white:#fff;
+  --red:#C0392B; --green:#2E8B57; --orange:#E67E22;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Open Sans',Arial,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+h1,h2,h3,.mont{font-family:'Montserrat',Arial,sans-serif}
+.slide{position:relative;max-width:1280px;margin:0 auto;padding:64px 56px 70px;overflow:hidden;border-bottom:1px solid #dadada}
+.slide>*{position:relative;z-index:1}
+.silk{position:absolute!important;z-index:0!important;top:-70px;right:-150px;width:720px;pointer-events:none}
+.silk.sm{width:470px;top:-110px;right:-150px}
+.brand{font:700 12px/1 'Montserrat',sans-serif;letter-spacing:.04em;text-transform:uppercase}
+.cover{min-height:min(760px,100vh);display:flex;flex-direction:column;justify-content:center}
+.cover .brand{position:absolute;top:44px;left:56px}
+.cover .logo{position:absolute;bottom:44px;right:56px;width:92px;z-index:2}
+.cover h1{font-weight:800;font-size:clamp(46px,8.4vw,112px);line-height:.98;letter-spacing:-.01em;text-transform:uppercase;margin:40px 0 26px}
+.cover .sub{font-size:clamp(16px,1.8vw,22px);color:var(--muted);max-width:760px;margin:0}
+.cover .meta{margin-top:10px;color:var(--soft);font-size:14px}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px;max-width:900px}
+.toc a{font:600 12px/1 'Montserrat',sans-serif;color:var(--ink);text-decoration:none;border:1.5px solid #9a9a9a;border-radius:30px;padding:9px 14px;background:rgba(255,255,255,.55)}
+.toc a:hover{background:#fff;border-color:var(--ink)}
+.shead{display:flex;align-items:center;gap:18px;margin:0 0 42px;max-width:860px}
+.shead .num{font:800 clamp(46px,6vw,78px)/.85 'Montserrat',sans-serif;letter-spacing:-.02em}
+.shead h2{margin:0;font-weight:800;font-size:clamp(20px,2.5vw,33px);line-height:1.08;text-transform:uppercase}
+.shead h2 small{display:block;font:500 14px/1.4 'Open Sans',sans-serif;text-transform:none;color:var(--muted);margin-top:8px}
+.pill{display:inline-block;font:800 14px/1 'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.02em;border:2px solid #4a4a4a;border-radius:8px;padding:8px 16px;background:#F7F7F7;box-shadow:0 3px 0 #d2d2d2}
+.lbl{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.conn{width:54px;height:12px;flex:none}
+.txt p{margin:0;font-size:14px;line-height:1.55;color:#333}
+.txt p+p{margin-top:8px}
+.txt b{color:var(--ink)}
+.pbody{display:grid;grid-template-columns:minmax(0,.78fr) 220px minmax(0,.78fr) 220px minmax(0,1.32fr);grid-template-areas:"t1 v1 t2 v2 card";gap:26px;align-items:center}
+.pbody.wide{grid-template-columns:minmax(0,.62fr) 350px minmax(0,.62fr) 210px minmax(0,1.3fr)}
+.pbody.wide .stats b{font-size:17px}
+.t1{grid-area:t1}.v1{grid-area:v1}.t2{grid-area:t2}.v2{grid-area:v2}.cardcol{grid-area:card}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.benefit-top{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:14px}
+.arrow{width:38px;height:38px;border:1.5px solid #555;border-radius:50%;display:grid;place-items:center}
+.card{background:var(--taupe);border:2px solid var(--taupe-b);padding:22px 22px 20px;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+.card>p{margin:0 0 16px;font-size:15px;line-height:1.6;color:#2b2b2b}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;border-top:1px solid #b3aca3;padding-top:14px}
+.stats b{display:block;font:800 19px/1.15 'Montserrat',sans-serif;color:#1f1f1f;margin-bottom:4px}
+.stats span{font-size:12.5px;line-height:1.35;color:#3d3d3d;display:block}
+.phone{width:100%;max-width:220px;margin:0 auto;aspect-ratio:9/19.2;background:#141414;border-radius:36px;padding:8px;box-shadow:0 22px 40px rgba(0,0,0,.2),inset 0 0 0 2px #3a3a3a}
+.screen{position:relative;height:100%;border-radius:29px;overflow:hidden;background:#fff;display:flex;flex-direction:column;container-type:inline-size}
+.island{position:absolute;top:3.5cqw;left:50%;transform:translateX(-50%);width:32cqw;height:9.5cqw;background:#000;border-radius:6cqw;z-index:9}
+.sbar{flex:none;height:14cqw;display:flex;justify-content:space-between;align-items:center;padding:1cqw 9cqw 0;font:600 5.2cqw/1 'Open Sans',sans-serif;color:#111;background:#fff}
+.sbar svg{width:11cqw;height:auto}
+.view{position:relative;flex:1;overflow:hidden;background:#fff}
+.view>img.shot{width:100%;height:100%;object-fit:contain;object-position:top;background:#fff}
+.url{flex:none;height:17cqw;background:#F2F2F2;display:grid;place-items:center;border-top:1px solid #e3e3e3}
+.url span{font:600 4.6cqw/1 'Open Sans',sans-serif;color:#333;background:#fff;border-radius:8cqw;padding:2.6cqw 12cqw;box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.cap{font-size:12px;color:var(--soft);text-align:center;margin-top:10px;line-height:1.35}
+.mock{font-family:'Montserrat',sans-serif;font-size:4.7cqw;color:#111;line-height:1.35;height:100%;overflow:hidden;display:flex;flex-direction:column}
+.mock>*{flex:none}
+.mock>.grow{flex:1 1 auto;min-height:0}
+.m-pad.col{display:flex;flex-direction:column}
+.m-pad.col>*{flex:none}
+.m-pad.col>img.grow{flex:1 1 auto;min-height:3em;height:auto}
+.m-ann{background:#111;color:#fff;text-align:center;font-size:.72em;padding:.75em .5em;letter-spacing:.04em}
+.m-hdr{display:flex;align-items:center;justify-content:space-between;padding:.5em 1em;border-bottom:1px solid #eee;background:#fff}
+.m-hdr img{width:2.6em;height:1.75em;object-fit:cover}
+.m-hdr .ic{width:1.35em;height:1.35em}
+.m-hdr .lang{font-size:.72em}
+.m-hero{position:relative;min-height:20em;background-size:cover;background-position:center;color:#fff;padding:1.8em 1.2em 1.6em;text-align:center;display:flex;flex-direction:column;justify-content:flex-end}
+.m-hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.15) 0%,rgba(0,0,0,.55) 45%,rgba(0,0,0,.78) 100%)}
+.m-hero>*{position:relative}
+.m-chips{display:flex;flex-wrap:wrap;gap:.35em;justify-content:center;margin-bottom:.8em}
+.m-chips span{font-size:.62em;font-weight:600;letter-spacing:.03em;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.5);border-radius:2em;padding:.35em .8em}
+.m-hero h3{font-weight:500;font-size:1.28em;line-height:1.18;margin:0 0 .5em}
+.m-hero p{font-size:.72em;margin:0 0 1.1em;opacity:.9}
+.m-btn{display:block;text-align:center;background:#0d0d0d;color:#fff;border-radius:3em;padding:.95em .8em;font-size:.72em;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.m-btn.light{background:#fff;color:#111}
+.m-hero small{display:block;font-size:.58em;margin-top:.8em;opacity:.85}
+.m-pad{padding:1em 1.1em}
+.m-kick{font-size:.6em;letter-spacing:.14em;color:#777;text-transform:uppercase;margin-bottom:.35em}
+.m-title{font-weight:500;font-size:1.12em;line-height:1.2;margin-bottom:.45em}
+.m-title.big{font-size:1.3em}
+.m-price{font-size:.95em;font-weight:600;margin-bottom:.15em}
+.m-price small{font-weight:400;font-size:.62em;color:#777}
+.m-shop{font-size:.62em;color:#444;margin-bottom:.7em}
+.m-shop b{color:#5a31f4;font-weight:800}
+.m-info{list-style:none;padding:0;margin:0 0 .7em;border-top:1px solid #eee}
+.m-info li{display:flex;gap:.55em;align-items:flex-start;font-size:.68em;padding:.5em 0;border-bottom:1px solid #eee;line-height:1.3}
+.m-info i{font-style:normal;width:1.2em;flex:none}
+.m-note{font-size:.62em;background:#F6EFE6;color:#7a5520;border-radius:.4em;padding:.55em .7em;margin-bottom:.7em;text-align:center}
+.m-fine{font-size:.56em;color:#666;text-align:center;margin-top:.6em;text-decoration:underline}
+.m-photo{width:100%;height:7.5em;object-fit:cover;border-radius:.7em;margin-bottom:.8em}
+.m-crumb{font-size:.6em;color:#777;margin-bottom:.7em}
+.fix{background:#E7F3EC;box-shadow:inset .22em 0 0 var(--green);border-radius:.3em;padding:.5em .6em;margin:.5em 0 .7em;font-size:.7em}
+.m-field{border:1px solid #999;padding:.7em .8em;font-size:.68em;color:#555;margin-bottom:.6em}
+.m-field span{color:#999}
+.m-h2{font-weight:500;font-size:1.3em;text-align:center;margin:.3em 0 .7em}
+.m-rev{background:#fff;border-radius:.9em;box-shadow:0 .2em 1em rgba(0,0,0,.1);padding:.9em;margin-bottom:.8em}
+.m-rev-top{display:flex;gap:.6em;align-items:center;margin-bottom:.55em}
+.m-ava{width:2.4em;height:2.4em;border-radius:50%;background:#d9d3cb;display:grid;place-items:center;font-weight:700;font-size:.8em;color:#5b554e;flex:none}
+.m-rev-top b{display:block;font-size:.72em}
+.m-rev-top span{display:block;font-size:.56em;color:#888}
+.m-rev p{font-size:.64em;line-height:1.45;margin:0}
+.m-ph{margin-top:.6em;border:1px dashed #bbb;border-radius:.5em;height:3.6em;display:grid;place-items:center;font-size:.54em;color:#888;background:#f6f6f6}
+.m-wait{background:#2e2a26;color:#fff;border-radius:1em;padding:1.1em;text-align:center}
+.m-wait b{display:block;font-weight:600;font-size:.95em;margin-bottom:.35em}
+.m-wait p{font-size:.62em;opacity:.85;margin:0 0 .8em}
+.m-input{background:#fff;color:#999;text-align:left;border-radius:3em;padding:.75em 1em;font-size:.64em;margin-bottom:.5em}
+.m-cookie{position:absolute;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #ddd;box-shadow:0 -.3em 1em rgba(0,0,0,.12);display:flex;align-items:center;gap:.6em;padding:.7em .9em;font-family:'Montserrat',sans-serif;font-size:4.7cqw}
+.m-cookie span{font-size:.58em;color:#333;flex:1;line-height:1.3}
+.m-cookie b{font-size:.58em;background:#111;color:#fff;border-radius:2em;padding:.55em 1em;font-weight:600}
+.m-sticky{position:absolute;left:.5em;right:.5em;bottom:.5em;background:#111;color:#fff;border-radius:1em;display:flex;align-items:center;gap:.6em;padding:.65em .7em .65em 1em;font-family:'Montserrat',sans-serif;font-size:4.7cqw;box-shadow:0 .4em 1.2em rgba(0,0,0,.35)}
+.m-sticky div{flex:1;line-height:1.25}
+.m-sticky div b{display:block;font-size:.66em;font-weight:600}
+.m-sticky div span{font-size:.56em;opacity:.8}
+.m-sticky a{background:#fff;color:#111;border-radius:2em;padding:.6em 1.1em;font-size:.62em;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.viz{background:#fff;border-radius:16px;box-shadow:0 14px 34px rgba(0,0,0,.1);padding:18px 16px;font-size:13px}
+.viz h4{margin:0 0 12px;font:700 11px/1.2 'Montserrat',sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#777}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #eee}
+.row:last-child{border-bottom:0}
+.row em{font-style:normal;font:700 12px/1 'Montserrat',sans-serif;white-space:nowrap}
+.bad{color:var(--red)} .ok{color:var(--green)} .warn{color:var(--orange)}
+.ring{--p:68;--c:var(--orange);width:92px;height:92px;border-radius:50%;margin:2px auto 12px;background:conic-gradient(var(--c) calc(var(--p)*1%),#e6e6e6 0);display:grid;place-items:center}
+.ring b{width:72px;height:72px;border-radius:50%;background:#fff;display:grid;place-items:center;font:800 22px/1 'Montserrat',sans-serif}
+.funnel div{margin:0 auto 6px;background:#E9E5DF;border-left:3px solid #9E978D;font:600 12px/1.2 'Montserrat',sans-serif;padding:9px 10px;border-radius:4px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tags span{font:700 10.5px/1 'Montserrat',sans-serif;background:#E7F3EC;color:var(--green);border-radius:20px;padding:6px 9px}
+.map{font:600 12px/1.3 'Montserrat',sans-serif}
+.map .node{border:1.5px solid #555;border-radius:8px;padding:9px 10px;background:#fafafa;text-align:center}
+.map .node.main{background:#262626;color:#fff;border-color:#262626}
+.map .down{text-align:center;color:#888;line-height:1;margin:5px 0}
+.map .x{color:var(--red);font-weight:600;font-size:11.5px;margin-top:10px;line-height:1.5}
+.lead{font-size:clamp(17px,1.7vw,21px);line-height:1.55;max-width:900px;margin:0 0 34px;color:#2c2c2c}
+.lead b{color:#111}
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.kpi{background:#F7F7F7;border:2px solid #4a4a4a;border-radius:10px;padding:18px 14px;box-shadow:0 3px 0 #d2d2d2}
+.kpi b{display:block;font:800 40px/1 'Montserrat',sans-serif;margin-bottom:8px}
+.kpi span{font:600 12px/1.3 'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.03em;color:#444}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px;margin-top:30px}
+.good{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.gcard{background:#fff;border-radius:14px;padding:20px;box-shadow:0 10px 26px rgba(0,0,0,.07)}
+.gcard .ck{width:30px;height:30px;border-radius:50%;background:#E7F3EC;color:var(--green);display:grid;place-items:center;font-weight:800;margin-bottom:12px}
+.gcard h3{margin:0 0 6px;font-size:16px;font-weight:700}
+.gcard p{margin:0;font-size:13.5px;color:#444}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;counter-reset:f}
+.step{background:#fff;border-radius:12px;padding:16px 16px 14px;box-shadow:0 8px 22px rgba(0,0,0,.06);position:relative}
+.step i{font:800 13px/1 'Montserrat',sans-serif;font-style:normal;display:inline-block;background:#262626;color:#fff;border-radius:6px;padding:5px 7px;margin-bottom:10px}
+.step b{display:block;font:700 14px/1.25 'Montserrat',sans-serif;margin-bottom:4px}
+.step span{font-size:12.5px;color:#555;line-height:1.4;display:block}
+.step.key{background:var(--taupe);border:2px solid var(--taupe-b);box-shadow:none}
+.note{margin-top:22px;font-size:13px;color:#555;display:flex;gap:10px;align-items:flex-start}
+.qgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 26px}
+.q{display:flex;gap:14px;align-items:flex-start;padding:12px 0;border-bottom:1px solid #d3d3d3}
+.q i{font:800 13px/1 'Montserrat',sans-serif;font-style:normal;border:2px solid #4a4a4a;border-radius:7px;padding:6px 7px;background:#F7F7F7;flex:none}
+.q p{margin:0;font-size:14px;color:#333}
+.q p b{color:#111}
+.price{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:34px;align-items:start}
+.pbox{background:var(--taupe);border:2px solid var(--taupe-b);padding:30px;box-shadow:0 10px 24px rgba(0,0,0,.08)}
+.pbox .sum{font:800 clamp(52px,6vw,76px)/1 'Montserrat',sans-serif;margin:8px 0 10px}
+.pbox p{margin:0;color:#333}
+.pbox .terms{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.pbox .terms span{font:700 12px/1 'Montserrat',sans-serif;background:#F7F7F7;border:1.5px solid #4a4a4a;border-radius:20px;padding:8px 12px}
+.incl{list-style:none;margin:0;padding:0}
+.incl li{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #d3d3d3;font-size:14.5px}
+.incl li::before{content:"✓";font-weight:800;color:var(--green);flex:none}
+.chart{background:#fff;border-radius:14px;padding:12px;box-shadow:0 10px 26px rgba(0,0,0,.07);max-width:780px}
+.end{text-align:center;padding-block:80px}
+.end img{width:120px;margin:0 auto 26px}
+.end h2{font-weight:800;font-size:clamp(26px,3.4vw,44px);text-transform:uppercase;margin:0 0 12px}
+.end p{max-width:640px;margin:0 auto;color:#444}
+.fine{max-width:760px;margin:28px auto 0!important;font-size:12.5px;color:#777!important}
+.sev{display:block;width:max-content;font:800 11px/1 'Montserrat',sans-serif;letter-spacing:.1em;text-transform:uppercase;border-radius:6px;padding:6px 9px;margin-bottom:10px}
+.sev.crit{background:var(--red);color:#fff}
+.sev.imp{background:#FFF4E8;color:#9A5B12;border:1.5px solid var(--orange)}
+.crit-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.ccard{display:flex;flex-direction:column;background:#fff;border-radius:14px;border-top:4px solid var(--red);padding:16px 18px 16px;box-shadow:0 10px 26px rgba(0,0,0,.07);color:inherit;text-decoration:none;transition:transform .15s}
+.ccard:hover{transform:translateY(-2px)}
+.ccard .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.ccard .n{font:800 24px/1 'Montserrat',sans-serif;color:var(--red)}
+.ccard .go{font:600 11px/1 'Montserrat',sans-serif;color:#888}
+.ccard b{font:700 15px/1.3 'Montserrat',sans-serif;margin-bottom:6px}
+.ccard .now{margin:0 0 12px;font-size:13px;color:#555;line-height:1.45}
+.ccard .do{margin:auto 0 0;font-size:13px;line-height:1.45;background:#F3F1EE;border-radius:8px;padding:9px 11px;color:#1f1f1f}
+.ccard .do::before{content:"We fix: ";font-weight:700}
+.imp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 26px}
+.irow{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-bottom:1px solid #d3d3d3}
+.irow i{font:800 13px/1 'Montserrat',sans-serif;font-style:normal;min-width:30px;text-align:center;border:2px solid var(--orange);color:#9A5B12;border-radius:7px;padding:6px 5px;background:#FFF4E8;flex:none}
+.irow>div{min-width:0;overflow-wrap:anywhere}
+.irow b{display:block;font:700 14.5px/1.3 'Montserrat',sans-serif;margin-bottom:4px}
+.irow span{display:block;font-size:13.5px;color:#444;line-height:1.45}
+.irow em{font-style:normal;font:600 11px/1 'Montserrat',sans-serif;color:#888;white-space:nowrap;margin-left:4px}
+@media (max-width:1100px){.crit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.crit-grid,.imp-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:1100px){
+  .slide{padding:54px 32px 60px}
+  .cover .brand{left:32px}.cover .logo{right:32px}
+  .pbody,.pbody.wide{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"t1 t2" "v1 v2" "card card";gap:22px 26px;align-items:start}
+  .pbody.wide{grid-template-areas:"t1 t2" "v1 v1" "v2 card"}
+  .conn{display:none}
+  .cardcol{max-width:620px}
+  .kpis{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .good{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .flow{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .price{grid-template-columns:1fr}
+  .silk{width:420px;top:-130px;right:-150px}
+}
+@media (max-width:640px){
+  body{font-size:14px}
+  .slide{padding:44px 16px 50px}
+  .cover{min-height:auto;padding-top:96px}
+  .cover .brand{left:16px;top:30px}.cover .logo{right:16px;top:18px;width:70px}
+  .shead{gap:12px;margin-bottom:28px}
+  .pbody,.pbody.wide{grid-template-columns:minmax(0,1fr);grid-template-areas:"t1" "v1" "t2" "v2" "card"}
+  .duo{gap:10px}
+  .phone{max-width:230px}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpi b{font-size:32px}
+  .two,.good,.flow,.qgrid{grid-template-columns:minmax(0,1fr)}
+  .silk{width:300px;top:-110px;right:-130px;opacity:.7}
+}
+.sev.ok{background:#E7F3EC;color:var(--green);border:1.5px solid var(--green)}
+a.irow{color:inherit;text-decoration:none}
+a.irow:hover b{text-decoration:underline}
+.good.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.ov-fix{position:absolute;left:0;right:0;height:12cqw;display:flex;align-items:center;padding:0 8cqw;background:#E7F3EC;box-shadow:inset 1.2cqw 0 0 #2E8B57;font:600 4.2cqw/1 'Montserrat',sans-serif;color:#1f5f3b}
+.ov-field{position:absolute;left:0;right:0;height:13cqw;background:#fff;padding:0 4cqw}
+.ov-field span{display:flex;align-items:center;height:100%;border:1px solid #2E8B57;box-shadow:0 0 0 .7cqw #E7F3EC;padding:0 5cqw;font:400 4.4cqw/1 'Montserrat',sans-serif;color:#555}
+.ov-field i{font-style:normal;color:#2E8B57}
+.hl{background:#E7F3EC;box-shadow:inset .22em 0 0 var(--green);border-radius:.3em;padding:.45em .6em;margin:.3em 0 .6em}
+.m-p{font-size:.66em;color:#555;text-align:center;margin:0 0 .9em}
+.m-field.tall{height:4.5em}
+.m-btn.out{background:#fff;color:#111;border:1px solid #111;margin-top:.5em}
+.m-card{border-radius:.9em;padding:.9em 1em;margin-bottom:.5em}
+.m-card b{display:block;font-weight:500;font-size:.8em;margin-bottom:.3em}
+.m-card p{margin:0;font-size:.64em;line-height:1.45}
+.m-card.pink{background:#F3E1E1}
+.m-card.dark{background:#2E2A26;color:#fff}
+.skel{margin:.7em 0 .5em}
+.skel i{display:block;height:.45em;border-radius:.3em;background:rgba(255,255,255,.28);margin-bottom:.4em}
+.m-less{font-size:.62em;text-decoration:underline}
+.m-nav span{display:block;font-size:.95em;padding:.55em 0;border-bottom:1px solid #eee}
+.m-langs{display:flex;gap:.4em}
+.m-langs b,.m-langs span{flex:1;text-align:center;font-size:.7em;padding:.6em;border-radius:2em;border:1px solid #111}
+.m-langs b{background:#111;color:#fff}
+.serp{border:1px solid #eee;border-radius:10px;padding:10px 12px;margin-bottom:10px}
+.serp .d{font-size:11px;color:#333}
+.serp .t{font:400 15px/1.25 Arial,sans-serif;color:#1a0dab;margin:3px 0 4px}
+.serp p{margin:0;font-size:11.5px;line-height:1.4;color:#4d5156}
+.code{font:600 11px/1.3 'Roboto Mono',Menlo,monospace;background:#FBEAEA;color:var(--red);border-radius:6px;padding:7px 8px;margin-bottom:12px;overflow-wrap:anywhere}
+.code.ok{background:#E7F3EC;color:var(--green)}
+.share{border-radius:12px;overflow:hidden;border:1px solid #e6e6e6;background:#F4F4F4}
+.share-img{height:110px;background-size:cover;background-position:center}
+.share-img.empty{display:grid;place-items:center;background:repeating-linear-gradient(45deg,#e9e9e9 0 8px,#f3f3f3 8px 16px);font-size:11.5px;color:#888;text-align:center;padding:0 12px}
+.share-body{padding:9px 11px}
+.share-body b{display:block;font:700 12.5px/1.3 'Montserrat',sans-serif}
+.share-body span{display:block;font-size:11.5px;color:#666;margin-top:2px}
+@media (max-width:1100px){.good.four{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.good.four{grid-template-columns:minmax(0,1fr)}}
+.divider{min-height:440px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.divider h2{margin:0;font-weight:800;font-size:clamp(44px,7.4vw,100px);line-height:.98;text-transform:uppercase;letter-spacing:-.01em}
+.divider .sev{font-size:13px;padding:8px 12px;margin-bottom:22px}
+@media (max-width:640px){.divider{min-height:300px}}
+.ptag{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:4px 10px;margin-top:12px;background:#262626;color:#fff;border-radius:10px;padding:11px 16px;box-shadow:0 8px 18px rgba(0,0,0,.12)}
+.ptag span{font:600 11px/1.2 'Montserrat',sans-serif;letter-spacing:.06em;text-transform:uppercase;opacity:.75}
+.ptag b{font:800 20px/1 'Montserrat',sans-serif}
+.ptag b small{font-size:12px;font-weight:600;opacity:.8}
+.ptag em{flex-basis:100%;font:600 12px/1.3 'Open Sans',sans-serif;font-style:normal;opacity:.8}
+.sev.extra{background:#262626;color:#fff}
+.pcol{display:flex;flex-direction:column;gap:18px}
+.pbox.alt{background:#fff;border-color:#d8d2ca}
+.pbox .sum small{font-size:.32em;font-weight:600;letter-spacing:0}
+.pnote{margin-top:14px!important;font-size:13px;color:#4a4a4a!important}
+.m-post{display:flex;gap:.7em;align-items:center;background:#fff;border:1px solid #eee;border-radius:.8em;padding:.5em .6em;margin-bottom:.6em}
+.m-post img{width:4.4em;height:4.4em;object-fit:cover;border-radius:.5em;flex:none}
+.m-post b{display:block;font-weight:500;font-size:.72em;line-height:1.3}
+.m-post .m-kick{display:block;margin-bottom:.25em}
+.plist h4{display:flex;align-items:center;gap:10px;margin:0 0 6px;font:700 13px/1 'Montserrat',sans-serif;color:#444}
+.plist h4 .sev{margin:0}
+.prow{display:grid;grid-template-columns:30px minmax(0,1fr) auto 58px;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid #d3d3d3;font-size:14px;line-height:1.35}
+.prow i{font:800 12px/1 'Montserrat',sans-serif;font-style:normal;color:#8a8a8a}
+.prow em{font-style:normal;font-size:12.5px;color:#777;white-space:nowrap}
+.prow b{font:800 14.5px/1 'Montserrat',sans-serif;text-align:right;white-space:nowrap}
+.ptotal{display:flex;justify-content:space-between;padding:14px 0 0;font:800 17px/1 'Montserrat',sans-serif}
+@media (max-width:640px){.prow{grid-template-columns:24px minmax(0,1fr) 52px}.prow em{display:none}}
+.m-q{display:flex;gap:.55em;align-items:flex-start;background:#fff;border:1px solid #eee;border-radius:.7em;padding:.55em .6em;margin-bottom:.45em}
+.m-q i{font-style:normal;font-weight:700;font-size:.58em;color:#999;padding-top:.15em}
+.m-q div{flex:1;min-width:0}
+.m-q b{display:block;font-weight:500;font-size:.64em;line-height:1.3}
+.m-q span{display:block;font-size:.52em;color:#888;margin-top:.2em}
+.m-q em{font-style:normal;font-weight:600;font-size:.5em;border-radius:2em;padding:.35em .6em;white-space:nowrap}
+.m-q em.pub{background:#E7F3EC;color:#2E8B57}
+.m-q em.draft{background:#F1F1F1;color:#555}
+.m-q em.now{background:#FFF4E8;color:#9A5B12}
+.m-daily{font-size:.6em;text-align:center;background:#111;color:#fff;border-radius:2em;padding:.7em}
+.bincl{list-style:none;margin:14px 0 0;padding:0}
+.bincl li{display:flex;gap:10px;font-size:14px;padding:6px 0;border-bottom:1px solid #eee;color:#333}
+.bincl li::before{content:"✓";color:var(--green);font-weight:800;flex:none}
+.mock.mail{background:#fff;color:#202124;font-size:5.9cqw}
+.ml-bar{display:flex;align-items:center;gap:.7em;padding:.7em .9em;border-bottom:1px solid #e8eaed;background:#fff;flex:none}
+.ml-bar .bk{font-size:1em;color:#5f6368}
+.ml-bar .ib{font-size:.64em;color:#5f6368;letter-spacing:.02em}
+.ml-sub{padding:.8em .9em .55em;flex:none}
+.ml-sub b{display:block;font-size:.84em;font-weight:600;line-height:1.3}
+.ml-from{display:flex;align-items:center;gap:.6em;padding:0 .9em .75em;border-bottom:1px solid #e8eaed;flex:none}
+.ml-av{width:2.1em;height:2.1em;border-radius:50%;background:#373a36;color:#fff;font-size:.64em;display:flex;align-items:center;justify-content:center;font-weight:700;letter-spacing:.06em;flex:none}
+.ml-from .who{flex:1;min-width:0}
+.ml-from .who b{display:block;font-size:.66em;font-weight:600}
+.ml-from .who span{display:block;font-size:.58em;color:#5f6368}
+.ml-from .tm{font-size:.56em;color:#5f6368;white-space:nowrap}
+.ml-body{flex:1;overflow:hidden;background:#f7f4f2;padding:.9em .8em}
+.ml-card{background:#fff;border-radius:.5em;overflow:hidden}
+.ml-logo{text-align:center;font-weight:700;letter-spacing:.24em;font-size:.72em;padding:.9em 0 .7em;border-bottom:1px solid #f0ece9}
+.ml-head{text-align:center;padding:1em .9em .2em}
+.ml-head b{display:block;font-size:.92em;font-weight:600;line-height:1.25;margin-bottom:.35em}
+.ml-head span{display:block;font-size:.6em;color:#6b6e69;line-height:1.4}
+.ml-item{display:flex;gap:.75em;align-items:center;padding:.9em}
+.ml-item i{width:4.2em;height:4.2em;border-radius:.4em;background:#f2eeeb center/cover no-repeat;flex:none}
+.ml-item div{min-width:0}
+.ml-item b{display:block;font-size:.62em;font-weight:600;line-height:1.3;margin-bottom:.25em}
+.ml-item span{display:block;font-size:.56em;color:#6b6e69}
+.ml-item em{display:block;font-size:.7em;font-weight:700;font-style:normal;margin-top:.3em}
+.ml-cta{margin:0 .9em .9em;background:#373a36;color:#fff;text-align:center;border-radius:.35em;padding:.85em;font-size:.68em;font-weight:700;letter-spacing:.04em}
+.ml-fine{text-align:center;font-size:.54em;color:#8a8d88;padding:0 .9em .9em;line-height:1.5}
+.ml-sep{height:1px;background:#f0ece9;margin:0 .9em}
+.ml-perks{display:flex;gap:.5em;padding:.9em}
+.ml-perks span{flex:1;text-align:center;font-size:.5em;color:#6b6e69;line-height:1.35;letter-spacing:.04em}
+.ml-perks span b{display:block;font-size:1.5em;color:#373a36;margin-bottom:.25em;font-weight:600}
+.ovl-txt{position:absolute;left:5cqw;right:5cqw;text-align:center;background:#fff;padding:1.6cqw 0}
+.ovl-txt b{display:block;font:600 3.5cqw/1.5 'Montserrat',sans-serif;color:#373a36;letter-spacing:.02em}
+.ovl-txt span{display:block;font:500 3.1cqw/1.55 'Montserrat',sans-serif;color:#6b6e69;margin-top:.8cqw}
+.ml-foot{text-align:center;font-size:.5em;color:#a3a6a1;padding:.9em .9em 0;line-height:1.6}
+.sev.low{background:#EEF2F7;color:#33608F;border:1.5px solid #6E9AC4}
+.mock.rf{background:#fff;color:#373a36}
+.m-hdr.rf{background:#fff;border-bottom:1px solid #eee;padding:.55em 1em}
+.m-logo{font-weight:700;letter-spacing:.22em;font-size:.78em}
+.m-hero-rf{background:#e9e4e1;padding:1.5em 1.1em;text-align:center}
+.m-hero-rf.short{padding:1.1em 1.1em}
+.m-hero-rf h3{font-weight:600;font-size:1.05em;line-height:1.25;margin:0 0 .5em}
+.m-hero-rf p{font-size:.66em;color:#5e615c;margin:0 0 .8em}
+.m-btn.dark{background:#373a36;color:#fff;border-radius:.4em}
+.m-h2.rf{font-weight:600;font-size:1em;margin:.2em 0 .7em}
+.m-card.rfc{background:#f6f3f1;border:1px solid #e3ddd9;border-radius:.8em;padding:.9em;text-align:center}
+.m-card.rfc b{display:block;font-size:.8em;margin-bottom:.3em}
+.m-card.rfc p{font-size:.62em;color:#6b6e69;margin:0 0 .7em}
+.m-field.rf{border:1px solid #cfc7c2;border-radius:.4em;padding:.7em .8em;font-size:.64em;color:#9a948f;background:#fff;margin-bottom:.6em;text-align:left}
+.m-note-rf{font-size:.58em;color:#8a5a44;text-align:center;margin-top:.6em}
+.m-filter{border-bottom:1px solid #eee;padding:.6em 0}
+.m-filter b{display:block;font-size:.72em;margin-bottom:.35em}
+.m-filter span{display:block;font-size:.58em;color:#6b6e69}
+.m-sw{display:flex;gap:.35em;margin-bottom:.35em}
+.m-sw i{width:1.25em;height:1.25em;border-radius:50%;display:block;border:1px solid #ddd}
+.m-rec{display:flex;gap:.6em;align-items:center;border:1px solid #eee;border-radius:.7em;padding:.5em;margin-bottom:.5em}
+.m-rec-img{width:3em;height:3em;border-radius:.5em;background:linear-gradient(135deg,#e9e4e1,#d8d1cc);flex:none}
+.m-rec b{display:block;font-size:.68em}
+.m-rec span{display:block;font-size:.56em;color:#6b6e69}
+.m-add{font-size:.58em;border:1px solid #373a36;border-radius:2em;padding:.35em .8em}
+.m-bar{height:.5em;border-radius:1em;background:#eee;overflow:hidden;margin:.2em 0 .4em}
+.m-bar i{display:block;height:100%;background:#8a5a44}
+.m-pay{display:flex;gap:.35em;margin:.6em 0}
+.m-pay span{flex:1;text-align:center;font-size:.54em;border:1px solid #ddd;border-radius:.4em;padding:.5em .2em}
+.m-trust{font-size:.56em;color:#6b6e69;text-align:center}
+.m-chat{background:#f6f3f1;border-radius:.8em;padding:.9em}
+.m-chat b{display:block;font-size:.74em;margin-bottom:.3em}
+.m-chat p{font-size:.6em;color:#6b6e69;margin:0 0 .6em}
+.m-bubble{position:absolute;right:1em;bottom:1em;width:2.4em;height:2.4em;border-radius:50%;background:#373a36;color:#fff;display:grid;place-items:center;font-size:1em}
+.m-cards{display:grid;grid-template-columns:1fr 1fr;gap:.5em}
+.m-pc{border:1px solid #eee;border-radius:.6em;padding:.45em}
+.m-pc-img{position:relative;height:5.6em;border-radius:.4em;background:linear-gradient(135deg,#efeae7,#ded6d1);margin-bottom:.35em}
+.m-pc b{display:block;font-size:.6em;line-height:1.2}
+.m-pc span{display:block;font-size:.54em;color:#6b6e69}
+.m-pc s{color:#a9a29d}
+.m-flag{position:absolute;top:.3em;left:.3em;font-size:.48em;background:#373a36;color:#fff;border-radius:2em;padding:.3em .6em}
+.m-flag.sale{background:#8a5a44}
+.m-flag.new{background:#4d6a86}
+.m-price-rf{display:block;font-size:.58em;font-weight:600;color:#373a36;margin-top:.15em}
+.m-pc .m-sw{margin-top:.3em}
+.m-pc .m-sw i{width:.85em;height:.85em}
+.tryon-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px minmax(0,1.15fr);gap:28px;align-items:start}
+.tryon-grid .tcol .lbl{margin-bottom:10px}
+.tryon-grid .txt{margin-bottom:14px}
+.phonecol .phone{max-width:300px;margin:0 auto}
+.phone.live .screen{background:#e9e4e1}
+.liveframe{width:100%;height:100%;border:0;display:block;background:#e9e4e1}
+.livelink{display:block;text-align:center;margin-top:10px;font:700 12px/1 'Montserrat',sans-serif;letter-spacing:.04em;color:#262626;border:1.5px solid #4a4a4a;border-radius:30px;padding:10px 14px;text-decoration:none;background:rgba(255,255,255,.6)}
+.livelink:hover{background:#fff}
+@media (max-width:1100px){.tryon-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.phonecol{grid-column:1 / -1}}
+@media (max-width:640px){.tryon-grid{grid-template-columns:minmax(0,1fr)}}
+.ov-tab{position:absolute;left:3cqw;bottom:15cqw;background:#373a36;color:#fff;border-radius:2em;padding:2.4cqw 4.5cqw;font:700 4cqw/1 'Montserrat',sans-serif;box-shadow:0 1cqw 2cqw rgba(0,0,0,.25)}
+.ov-note{position:absolute;left:0;right:0;bottom:0;background:rgba(255,255,255,.94);border-top:1px solid #e6e1dd;color:#8a5a44;text-align:center;padding:2.6cqw 2cqw;font:600 3.6cqw/1.3 'Montserrat',sans-serif}
+.ov-reserve{position:absolute;left:4cqw;right:4cqw;top:52cqw;height:58cqw;border:2px dashed #2E8B57;border-radius:3cqw;background:rgba(255,255,255,.88);display:flex;align-items:center;justify-content:center;text-align:center;padding:0 5cqw;color:#1f5f3b;font:600 4cqw/1.35 'Montserrat',sans-serif}
+.ov-ok{position:absolute;right:4cqw;bottom:26cqw;background:#E7F3EC;color:#1f5f3b;border:1px solid #2E8B57;border-radius:2em;padding:2.2cqw 4cqw;font:700 3.6cqw/1 'Montserrat',sans-serif}
+.m-tap{display:flex;align-items:center;gap:.6em;border:1px dashed #2E8B57;border-radius:.5em;padding:.6em;margin-bottom:.5em;font-size:.58em;color:#1f5f3b}
+.m-tap i{width:2.2em;height:2.2em;border-radius:.4em;background:#E7F3EC;display:block;flex:none}
+.m-crumb-rf{font-size:.58em;color:#6b6e69;margin-bottom:.5em}
+.m-crumb-rf b{font-weight:400;color:#b3ada8}
+.m-sticky-rf{position:absolute;left:.5em;right:.5em;bottom:.5em;display:flex;align-items:center;justify-content:space-between;gap:.5em;background:#373a36;color:#fff;border-radius:.6em;padding:.6em .7em;font-size:4.7cqw}
+.m-sticky-rf span{font-size:.7em;font-weight:600}
+.m-sticky-rf a{background:#fff;color:#373a36;border-radius:.4em;padding:.5em .9em;font-size:.6em;font-weight:700}
+.m-ann-rf{background:#f3e7e3;color:#7a4b3a;text-align:center;font-size:.6em;padding:.6em}
+.m-ann-rf.soft{opacity:.45}
+.m-check-rf{display:flex;gap:.5em;align-items:center;font-size:.56em;color:#6b6e69;margin:.2em 0 .6em}
+.m-check-rf i{width:1em;height:1em;border:1px solid #373a36;border-radius:.2em;display:block;flex:none}
+.m-rate{text-align:center;font-size:.68em;color:#8a5a44;margin-bottom:.6em}
+.m-proof-rf{display:block;font-size:.54em;color:#8a5a44;margin-top:.3em}
+.m-sizes{display:flex;gap:.4em;margin:.5em 0}
+.m-sizes span{flex:1;text-align:center;border:1px solid #cfc7c2;border-radius:50%;padding:.55em 0;font-size:.62em}
+.m-sizes span.on{background:#373a36;color:#fff;border-color:#373a36}
+.m-social{display:flex;flex-wrap:wrap;gap:.35em;margin-bottom:.5em}
+.m-social span{font-size:.54em;border:1px solid #ddd;border-radius:2em;padding:.45em .7em}
+.ovl{position:absolute;left:4cqw;right:4cqw;border-radius:2.5cqw;background:#fff;box-shadow:0 2cqw 6cqw rgba(0,0,0,.2);padding:3cqw 3.5cqw;color:#373a36}
+.ovl.dark{background:#373a36;color:#fff}
+.ovl .t{display:block;font:700 4.2cqw/1.25 'Montserrat',sans-serif;margin-bottom:1.2cqw}
+.ovl .s{display:block;font:500 3.5cqw/1.35 'Montserrat',sans-serif;color:#6b6e69}
+.ovl-chip{position:absolute;background:#373a36;color:#fff;border-radius:2em;padding:2cqw 3.2cqw;font:700 3.4cqw/1 'Montserrat',sans-serif;box-shadow:0 1cqw 3cqw rgba(0,0,0,.25);max-width:64cqw}
+.ovl-chip.ok{background:#E7F3EC;color:#1f5f3b;border:1px solid #2E8B57}
+.ovl-btn{position:absolute;left:4cqw;right:4cqw;background:#373a36;color:#fff;text-align:center;border-radius:1.5cqw;padding:3cqw;font:700 3.8cqw/1 'Montserrat',sans-serif;letter-spacing:.06em}
+.ovl-row{position:absolute;left:4cqw;right:4cqw;display:flex;gap:1.4cqw}
+.ovl-row span{flex:1;text-align:center;font:600 3cqw/1 'Montserrat',sans-serif;background:#fff;border:1px solid #e3ddd9;border-radius:1.4cqw;padding:2.2cqw .4cqw;color:#373a36}
+.ovl-mini{display:flex;gap:2cqw;align-items:center;margin-top:2cqw}
+.ovl-mini i{width:9cqw;height:9cqw;border-radius:1.5cqw;background-size:cover;background-position:center;display:block;flex:none}
+.ovl-mini b{display:block;font:700 3.3cqw/1.2 'Montserrat',sans-serif}
+.ovl-mini span{display:block;font:500 3.1cqw/1.25 'Montserrat',sans-serif;color:#6b6e69}
+.imgcard img{width:100%;border-radius:8px;display:block}
+.imgcard .cap2{font-size:12px;color:#777;margin-top:8px;line-height:1.4}
+.fine-note{font-size:12.5px!important;color:#777!important}
+.fine-note a{color:#333}
+.cover .logo{bottom:auto;top:30px}
+.end img{width:120px}
+.rf2{height:100%;display:flex;flex-direction:column;background:#fff;color:#1f1f1f;
+     font-family:'Montserrat',Arial,sans-serif;font-size:4cqw;line-height:1.35;overflow:hidden}
+.rf2 .r-ann{flex:none;background:#F4E5E0;color:#2b2b2b;text-align:center;font-size:.85em;padding:1.7cqw 2cqw}
+.rf2 .r-hdr{flex:none;display:flex;align-items:center;gap:2cqw;padding:2.2cqw 3.2cqw;border-bottom:1px solid #ececec;background:#fff}
+.rf2 .r-hdr svg{display:block;flex:none}
+.rf2 .r-logo{flex:1;text-align:center;font-weight:700;font-size:1.28em;letter-spacing:.11em;color:#1a1a1a}
+.rf2 .r-ic{display:flex;gap:2.6cqw;align-items:center}
+.rf2 .r-burger{width:5.2cqw;height:3.8cqw}
+.rf2 .r-ic svg{width:4.4cqw;height:4.4cqw}
+.rf2 .r-bag{display:block;line-height:0}
+.rf2 .r-bag svg{width:4.4cqw;height:4.4cqw}
+.rf2 .r-bag{position:relative;font-size:.5em;font-weight:600}
+.rf2 .r-bag i{position:absolute;left:0;right:0;top:52%;text-align:center;font-style:normal;font-size:2.2cqw;color:#1a1a1a}
+.rf2 .r-body{flex:1;min-height:0;position:relative;overflow:hidden}
+.rf2 .r-crumb{padding:3.4cqw 3.4cqw;font-size:.66em;letter-spacing:.06em;color:#6f6f6f;text-transform:uppercase}
+.rf2 .r-filters{display:flex;border-top:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;font-size:.8em}
+.rf2 .r-filters span{flex:1;text-align:center;padding:2.6cqw 0;border-right:1px solid #e4e4e4;color:#2b2b2b}
+.rf2 .r-filters span:last-child{border-right:0;display:flex;gap:1.6cqw;align-items:center;justify-content:center}
+.rf2 .r-filters u{display:block;width:3.2cqw;height:3.2cqw;background:#9a9a9a;text-decoration:none}
+.rf2 .r-filters u.grid{background:
+   linear-gradient(#1a1a1a,#1a1a1a) 0 0/1.4cqw 1.4cqw no-repeat,
+   linear-gradient(#1a1a1a,#1a1a1a) 100% 0/1.4cqw 1.4cqw no-repeat,
+   linear-gradient(#1a1a1a,#1a1a1a) 0 100%/1.4cqw 1.4cqw no-repeat,
+   linear-gradient(#1a1a1a,#1a1a1a) 100% 100%/1.4cqw 1.4cqw no-repeat}
+.rf2 .r-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 3.4cqw;padding:9cqw 3.4cqw 0}
+.rf2 .r-card{min-width:0}
+.rf2 .r-ph{position:relative;aspect-ratio:1/.78;display:grid;place-items:center;overflow:hidden}
+.rf2 .r-ph img{width:100%;height:100%;object-fit:contain}
+.rf2 .r-badge{position:absolute;top:1.6cqw;left:1.6cqw;background:#1a1a1a;color:#fff;font-size:.52em;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;padding:1.1cqw 2.2cqw;border-radius:2em}
+.rf2 .r-badge.new{background:#fff;color:#1a1a1a;border:1px solid #1a1a1a}
+.rf2 .r-badge.save{background:#F4E5E0;color:#8A4A28}
+.rf2 .r-stars{display:flex;align-items:center;gap:1.2cqw;margin:1.4cqw 0 .8cqw;font-size:.66em;color:#8b8b8b}
+.rf2 .r-stars b{color:#FFB600;font-size:1.25em;letter-spacing:-.04em;font-weight:400}
+.rf2 .r-name{font-size:.95em;line-height:1.22;color:#1f1f1f;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rf2 .r-price{font-size:.95em;margin-top:.3cqw}
+.rf2 .r-sw{display:flex;gap:1cqw;margin:2cqw 0}
+.rf2 .r-sw i{width:5.4cqw;height:5.4cqw;border-radius:50%;background:#fff center/contain no-repeat;display:block;border:1px solid #e2e2e2}
+.rf2 .r-sw i.on{box-shadow:0 0 0 .7cqw #fff,0 0 0 1.3cqw #bdbdbd}
+.rf2 .r-sw u{width:5.4cqw;height:5.4cqw;border-radius:50%;border:1px solid #cfcfcf;color:#8b8b8b;
+  display:grid;place-items:center;font-size:.6em;text-decoration:none}
+.rf2 .r-qb{border:1px solid #e0e0e0;text-align:center;padding:2.6cqw 0;font-size:.85em;letter-spacing:.02em}
+.rf2 .r-h1{text-align:center;font-size:1.8em;font-weight:400;padding:5cqw 0 3.4cqw;letter-spacing:.01em}
+.rf2 .r-ship{margin:0 3.4cqw;background:#F7E7E2;border-radius:2.4cqw;padding:3cqw 3.4cqw;text-align:center}
+.rf2 .r-ship b{display:block;color:#9C4F2A;font-size:.85em;font-weight:600;line-height:1.3}
+.rf2 .r-ship u{display:block;height:1.8cqw;border-radius:2em;background:#E3CDC5;margin-top:2.4cqw;overflow:hidden;text-decoration:none}
+.rf2 .r-ship u b{display:block;height:100%;width:62%;background:#8A4A28}
+.rf2 .r-line{display:flex;gap:2.6cqw;padding:3.4cqw;border-bottom:1px solid #ededed;align-items:flex-start}
+.rf2 .r-line img{width:14cqw;flex:none}
+.rf2 .r-line .r-n{flex:1;min-width:0;font-size:.78em;line-height:1.3;color:#4a4a4a}
+.rf2 .r-line .r-n b{display:block;color:#1f1f1f;font-weight:400;font-size:1.1em;margin-bottom:.6cqw}
+.rf2 .r-line .r-n em{font-style:normal;color:#8b8b8b}
+.rf2 .r-qty{display:flex;align-items:center;justify-content:space-between;margin-top:2cqw}
+.rf2 .r-qty span{border:1px solid #dcdcdc;padding:1.4cqw 3.4cqw;font-size:.85em;letter-spacing:.3em}
+.rf2 .r-qty u{font-size:.8em;color:#4a4a4a}
+.rf2 .r-also{padding:3.4cqw;border-bottom:1px solid #ededed}
+.rf2 .r-also>b{display:block;font-size:1em;font-weight:500;margin-bottom:2.6cqw}
+.rf2 .r-also .it{display:flex;gap:2.6cqw;align-items:center;margin-bottom:2.6cqw}
+.rf2 .r-also .it:last-child{margin-bottom:0}
+.rf2 .r-also .it img{width:12cqw;flex:none}
+.rf2 .r-also .it div{flex:1;min-width:0;font-size:.74em;line-height:1.28;color:#1f1f1f}
+.rf2 .r-also .it u{display:block;color:#6f6f6f;margin-top:.8cqw;font-size:.92em}
+.rf2 .r-also .it em{font-style:normal;font-size:.9em;white-space:nowrap}
+.rf2 .r-total{padding:3.4cqw 3.4cqw 0;font-size:1em}
+.rf2 .r-total span{display:block;color:#6f6f6f;font-size:.78em;margin-top:1.2cqw}
+.rf2 .r-cta{margin:3cqw 3.4cqw;background:#1B1B1B;color:#fff;text-align:center;padding:3.4cqw;
+  font-size:.88em;font-weight:600;letter-spacing:.06em}
+.rf2 .r-thumbs{display:flex;gap:1.6cqw;padding:3cqw 3.4cqw;overflow:hidden}
+.rf2 .r-thumbs i{width:16cqw;height:16cqw;flex:none;background:#f3efec center/cover;display:block}
+.rf2 .r-thumbs i.on{box-shadow:0 0 0 1px #1a1a1a}
+.rf2 .r-opt{padding:0 3.4cqw;font-size:.9em}
+.rf2 .r-opt .lb{color:#1f1f1f}
+.rf2 .r-opt .lb em{font-style:normal;color:#4a4a4a;margin-left:2cqw}
+.rf2 .r-colors{display:flex;flex-wrap:wrap;gap:2.4cqw;margin:2.6cqw 0}
+.rf2 .r-colors i{width:13cqw;height:13cqw;border-radius:50%;background:#fff center/contain no-repeat;display:block}
+.rf2 .r-colors i.on{box-shadow:0 0 0 1px #9a9a9a}
+.rf2 .r-stock{display:flex;align-items:center;gap:1.8cqw;font-size:.72em;color:#9C4F2A;margin:0 0 3cqw}
+.rf2 .r-stock u{width:2cqw;height:2cqw;border-radius:50%;background:#9C4F2A;display:block;flex:none}
+.rf2 .r-hr{height:1px;background:#e6e6e6;margin:1cqw 3.4cqw 3cqw}
+.rf2 .r-sizes{display:flex;flex-wrap:wrap;gap:2.4cqw;margin:2.6cqw 0 0}
+.rf2 .r-sizes span{width:12.6cqw;height:12.6cqw;border:1px solid #dcdcdc;border-radius:50%;display:grid;place-items:center;font-size:.8em}
+.rf2 .r-calc{float:right;font-size:.82em;color:#8b8b8b;border-bottom:1px solid #c9c9c9}
+.rf2 .r-btn{margin:4cqw 3.4cqw 0;background:#D6D6D6;color:#fff;text-align:center;padding:4cqw;font-size:.92em;letter-spacing:.04em}
+.rf2 .r-btn.on{background:#1B1B1B}
+.rf2 .r-return{text-align:center;padding:2.6cqw 6cqw 0;font-size:.7em;line-height:1.5;color:#4a4a4a}
+.rf2 .r-return b{font-weight:600;color:#1f1f1f}
+.rf2 .r-return span{display:block;color:#8b8b8b;margin-top:.6cqw}
+.rf2 .r-perks{display:grid;grid-template-columns:1fr 1fr;gap:4cqw 2cqw;padding:5cqw 3.4cqw 0;text-align:center}
+.rf2 .r-perks span{font-size:.62em;font-weight:600;letter-spacing:.02em}
+.rf2 .r-perks span b{display:block;color:#F3A6B6;font-size:2.1em;font-weight:400;line-height:1;margin-bottom:1.4cqw}
+.rf2 .r-tabs{display:flex;font-size:.78em;text-align:center;border-bottom:1px solid #e4e4e4;padding:4cqw 3.4cqw 0}
+.rf2 .r-tabs span{flex:1;padding:2.6cqw 1cqw;color:#8b8b8b;line-height:1.25}
+.rf2 .r-tabs span.on{color:#1f1f1f;border:1px solid #e4e4e4;border-bottom-color:#fff;margin-bottom:-1px}
+.rf2 .r-rev-head{display:flex;align-items:center;gap:2cqw;padding:3.4cqw}
+.rf2 .r-rev-head b{color:#FFB600;font-size:1.15em;font-weight:400;letter-spacing:-.04em}
+.rf2 .r-rev-head span{font-size:.9em}
+.rf2 .r-write{margin:0 3.4cqw;border:1px solid #e0e0e0;text-align:center;padding:2.6cqw;font-size:.85em}
+.rf2 .r-rev{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3cqw;padding:3.4cqw}
+.rf2 .r-rev figure{margin:0;border:1px solid #ededed}
+.rf2 .r-rev img{width:100%;aspect-ratio:1/.8;object-fit:cover;object-position:center top}
+.rf2 .r-rev figcaption{padding:2.2cqw}
+.rf2 .r-rev .who{font-size:.8em;display:flex;align-items:center;gap:1.2cqw}
+.rf2 .r-rev .who u{width:3.2cqw;height:3.2cqw;border-radius:50%;background:#1a1a1a;color:#fff;font-size:2cqw;
+  display:grid;place-items:center;text-decoration:none}
+.rf2 .r-rev .dt{font-size:.66em;color:#8b8b8b;margin:.8cqw 0}
+.rf2 .r-rev .st{color:#FFB600;font-size:.9em;letter-spacing:-.04em}
+.rf2 .r-rev p{margin:.8cqw 0 0;font-size:.74em;line-height:1.35}
+.rf2 .r-sticky{position:absolute;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e4e4e4;
+  display:flex;align-items:center;gap:2.6cqw;padding:2.6cqw 3.4cqw;box-shadow:0 -1cqw 3cqw rgba(0,0,0,.07)}
+.rf2 .r-sticky img{width:10cqw;flex:none}
+.rf2 .r-sticky .t{flex:1;min-width:0;font-size:.72em;line-height:1.25}
+.rf2 .r-sticky .t b{display:block;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rf2 .r-sticky .t span{color:#6f6f6f}
+.rf2 .r-sticky em{font-style:normal;background:#1B1B1B;color:#fff;font-size:.72em;font-weight:600;
+  letter-spacing:.04em;padding:2.6cqw 3.4cqw;white-space:nowrap}
+.rf2 .r-promo{text-align:center;padding:5cqw 5cqw 4.4cqw}
+.rf2 .r-promo b{display:block;font-size:1.5em;font-weight:400}
+.rf2 .r-promo span{display:block;font-size:.78em;color:#6f6f6f;margin-top:1.6cqw;line-height:1.4}
+.rf2 .r-rw{background:#F7E7E2;padding:4.4cqw 3.4cqw}
+.rf2 .r-rw .ttl{text-align:center;font-size:.7em;font-weight:600;letter-spacing:.16em;color:#8A4A28}
+.rf2 .r-rw .sub{text-align:center;font-size:.88em;margin-top:1.6cqw;color:#1f1f1f}
+.rf2 .r-rw .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2cqw;margin:3.4cqw 0}
+.rf2 .r-rw .steps span{text-align:center;font-size:.6em;line-height:1.35;color:#5a4038}
+.rf2 .r-rw .steps span b{display:block;font-size:1.5em;color:#8A4A28;font-weight:600;margin-bottom:.8cqw}
+.rf2 .r-rw .jb{background:#1B1B1B;color:#fff;text-align:center;padding:3cqw;font-size:.8em;font-weight:600;letter-spacing:.06em}
+.rf2 .r-foot{background:#E9E4E1;padding:4.4cqw 3.4cqw}
+.rf2 .r-foot .fl{font-weight:700;letter-spacing:.11em;font-size:1.05em}
+.rf2 .r-foot .fd{font-size:.72em;color:#6f6f6f;margin-top:1.6cqw;line-height:1.45}
+.rf2 .r-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 3cqw;margin-top:4.4cqw}
+.rf2 .r-cols b{display:block;font-size:.82em;font-weight:600;letter-spacing:.02em;margin-bottom:2.4cqw}
+.rf2 .r-cols span{display:block;font-size:.82em;color:#2b2b2b;margin-bottom:2cqw}
+.rf2 .r-soc{display:flex;justify-content:space-between;align-items:center;margin-top:3.4cqw;padding-right:2cqw;position:relative}
+.rf2 .r-soc svg{width:5.6cqw;height:5.6cqw;display:block}
+.rf2 .r-addr{font-size:.68em;color:#8b8b8b;margin-top:3.4cqw;line-height:1.45}
+.rf2 .r-peek{position:absolute;bottom:9.4cqw;left:14cqw;background:rgba(28,28,30,.94);color:#fff;
+  font-size:.62em;letter-spacing:.01em;padding:1.8cqw 3cqw;border-radius:1.6cqw;white-space:nowrap;
+  box-shadow:0 1.4cqw 3.4cqw rgba(0,0,0,.28)}
+.rf2 .r-peek::after{content:"";position:absolute;left:12.4cqw;bottom:-1.4cqw;width:3cqw;height:3cqw;
+  background:rgba(28,28,30,.94);transform:rotate(45deg);border-radius:.4cqw}
+.rf2 .r-pol{display:flex;flex-wrap:wrap;gap:2cqw 4cqw;margin-top:3.4cqw;font-size:.74em}
+.rf2 .r-bottom{background:#4E4E4E;color:#fff;display:flex;justify-content:space-between;
+  padding:2.6cqw 3.4cqw;font-size:.74em}
+.rf2 .r-est{margin:4cqw 3.4cqw 0;border-top:1px solid #e6e6e6;padding-top:4cqw;text-align:center;font-size:1.05em;color:#3a3a3a}
+.rf2 .r-est u{display:block;border:1px solid #dcdcdc;height:9cqw;margin-top:2.6cqw}
+.rf2{height:100%;display:flex;flex-direction:column;background:#fff;color:#1f1f1f;
+     font-family:'Montserrat',Arial,sans-serif;font-size:4cqw;line-height:1.35;overflow:hidden}
+.rf2 .r-ann{flex:none;background:#F4E5E0;color:#2b2b2b;text-align:center;font-size:.85em;padding:1.7cqw 2cqw}
+.rf2 .r-hdr{flex:none;display:flex;align-items:center;gap:2cqw;padding:2.2cqw 3.2cqw;border-bottom:1px solid #ececec;background:#fff}
+.rf2 .r-hdr svg{display:block;flex:none}
+.rf2 .r-logo{flex:1;text-align:center;font-weight:700;font-size:1.28em;letter-spacing:.11em;color:#1a1a1a}
+.rf2 .r-ic{display:flex;gap:2.6cqw;align-items:center}
+.rf2 .r-burger{width:5.2cqw;height:3.8cqw}
+.rf2 .r-ic svg{width:4.4cqw;height:4.4cqw}
+.rf2 .r-bag{display:block;line-height:0}
+.rf2 .r-bag svg{width:4.4cqw;height:4.4cqw}
+.rf2 .r-bag{position:relative;font-size:.5em;font-weight:600}
+.rf2 .r-bag i{position:absolute;left:0;right:0;top:52%;text-align:center;font-style:normal;font-size:2.2cqw;color:#1a1a1a}
+.rf2 .r-body{flex:1;min-height:0;position:relative;overflow:hidden}
+.rf2 .r-crumb{padding:3.4cqw 3.4cqw;font-size:.66em;letter-spacing:.06em;color:#6f6f6f;text-transform:uppercase}
+.rf2 .r-filters{display:flex;border-top:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;font-size:.8em}
+.rf2 .r-filters span{flex:1;text-align:center;padding:2.6cqw 0;border-right:1px solid #e4e4e4;color:#2b2b2b}
+.rf2 .r-filters span:last-child{border-right:0;display:flex;gap:1.6cqw;align-items:center;justify-content:center}
+.rf2 .r-filters u{display:block;width:3.2cqw;height:3.2cqw;background:#9a9a9a;text-decoration:none}
+.rf2 .r-filters u.grid{background:
+   linear-gradient(#1a1a1a,#1a1a1a) 0 0/1.4cqw 1.4cqw no-repeat,
+   linear-gradient(#1a1a1a,#1a1a1a) 100% 0/1.4cqw 1.4cqw no-repeat,
+   linear-gradient(#1a1a1a,#1a1a1a) 0 100%/1.4cqw 1.4cqw no-repeat,
+   linear-gradient(#1a1a1a,#1a1a1a) 100% 100%/1.4cqw 1.4cqw no-repeat}
+.rf2 .r-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 3.4cqw;padding:17cqw 3.4cqw 0}
+.rf2 .r-card{min-width:0}
+.rf2 .r-ph{position:relative;aspect-ratio:1/.78;display:grid;place-items:center;overflow:hidden}
+.rf2 .r-ph img{width:100%;height:100%;object-fit:contain}
+.rf2 .r-badge{position:absolute;top:1.6cqw;left:1.6cqw;background:#1a1a1a;color:#fff;font-size:.52em;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;padding:1.1cqw 2.2cqw;border-radius:2em}
+.rf2 .r-badge.new{background:#fff;color:#1a1a1a;border:1px solid #1a1a1a}
+.rf2 .r-badge.save{background:#F4E5E0;color:#8A4A28}
+.rf2 .r-stars{display:flex;align-items:center;gap:1.2cqw;margin:1.4cqw 0 .8cqw;font-size:.66em;color:#8b8b8b}
+.rf2 .r-stars b{color:#FFB600;font-size:1.25em;letter-spacing:-.04em;font-weight:400}
+.rf2 .r-name{font-size:.95em;line-height:1.22;color:#1f1f1f;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rf2 .r-price{font-size:.95em;margin-top:.3cqw}
+.rf2 .r-sw{display:flex;gap:1cqw;margin:2cqw 0}
+.rf2 .r-sw i{width:5.4cqw;height:5.4cqw;border-radius:50%;background:#fff center/contain no-repeat;display:block;border:1px solid #e2e2e2}
+.rf2 .r-sw i.on{box-shadow:0 0 0 .7cqw #fff,0 0 0 1.3cqw #bdbdbd}
+.rf2 .r-sw u{width:5.4cqw;height:5.4cqw;border-radius:50%;border:1px solid #cfcfcf;color:#8b8b8b;
+  display:grid;place-items:center;font-size:.6em;text-decoration:none}
+.rf2 .r-qb{border:1px solid #e0e0e0;text-align:center;padding:2.6cqw 0;font-size:.85em;letter-spacing:.02em}
+.rf2 .r-h1{text-align:center;font-size:1.8em;font-weight:400;padding:5cqw 0 3.4cqw;letter-spacing:.01em}
+.rf2 .r-ship{margin:0 3.4cqw;background:#F7E7E2;border-radius:2.4cqw;padding:3cqw 3.4cqw;text-align:center}
+.rf2 .r-ship b{display:block;color:#9C4F2A;font-size:.85em;font-weight:600;line-height:1.3}
+.rf2 .r-ship u{display:block;height:1.8cqw;border-radius:2em;background:#E3CDC5;margin-top:2.4cqw;overflow:hidden;text-decoration:none}
+.rf2 .r-ship u b{display:block;height:100%;width:62%;background:#8A4A28}
+.rf2 .r-line{display:flex;gap:2.6cqw;padding:3.4cqw;border-bottom:1px solid #ededed;align-items:flex-start}
+.rf2 .r-line img{width:14cqw;flex:none}
+.rf2 .r-line .r-n{flex:1;min-width:0;font-size:.78em;line-height:1.3;color:#4a4a4a}
+.rf2 .r-line .r-n b{display:block;color:#1f1f1f;font-weight:400;font-size:1.1em;margin-bottom:.6cqw}
+.rf2 .r-line .r-n em{font-style:normal;color:#8b8b8b}
+.rf2 .r-qty{display:flex;align-items:center;justify-content:space-between;margin-top:2cqw}
+.rf2 .r-qty span{border:1px solid #dcdcdc;padding:1.4cqw 3.4cqw;font-size:.85em;letter-spacing:.3em}
+.rf2 .r-qty u{font-size:.8em;color:#4a4a4a}
+.rf2 .r-also{padding:3.4cqw;border-bottom:1px solid #ededed}
+.rf2 .r-also>b{display:block;font-size:1em;font-weight:500;margin-bottom:2.6cqw}
+.rf2 .r-also .it{display:flex;gap:2.6cqw;align-items:center;margin-bottom:2.6cqw}
+.rf2 .r-also .it:last-child{margin-bottom:0}
+.rf2 .r-also .it img{width:12cqw;flex:none}
+.rf2 .r-also .it div{flex:1;min-width:0;font-size:.74em;line-height:1.28;color:#1f1f1f}
+.rf2 .r-also .it u{display:block;color:#6f6f6f;margin-top:.8cqw;font-size:.92em}
+.rf2 .r-also .it em{font-style:normal;font-size:.9em;white-space:nowrap}
+.rf2 .r-total{padding:3.4cqw 3.4cqw 0;font-size:1em}
+.rf2 .r-total span{display:block;color:#6f6f6f;font-size:.78em;margin-top:1.2cqw}
+.rf2 .r-cta{margin:3cqw 3.4cqw;background:#1B1B1B;color:#fff;text-align:center;padding:3.4cqw;
+  font-size:.88em;font-weight:600;letter-spacing:.06em}
+.rf2 .r-thumbs{display:flex;gap:1.6cqw;padding:3cqw 3.4cqw;overflow:hidden}
+.rf2 .r-thumbs i{width:16cqw;height:16cqw;flex:none;background:#f3efec center/cover;display:block}
+.rf2 .r-thumbs i.on{box-shadow:0 0 0 1px #1a1a1a}
+.rf2 .r-opt{padding:0 3.4cqw;font-size:.9em}
+.rf2 .r-opt .lb{color:#1f1f1f}
+.rf2 .r-opt .lb em{font-style:normal;color:#4a4a4a;margin-left:2cqw}
+.rf2 .r-colors{display:flex;flex-wrap:wrap;gap:2.4cqw;margin:2.6cqw 0}
+.rf2 .r-colors i{width:13cqw;height:13cqw;border-radius:50%;background:#fff center/contain no-repeat;display:block}
+.rf2 .r-colors i.on{box-shadow:0 0 0 1px #9a9a9a}
+.rf2 .r-stock{display:flex;align-items:center;gap:1.8cqw;font-size:.72em;color:#9C4F2A;margin:0 0 3cqw}
+.rf2 .r-stock u{width:2cqw;height:2cqw;border-radius:50%;background:#9C4F2A;display:block;flex:none}
+.rf2 .r-hr{height:1px;background:#e6e6e6;margin:1cqw 3.4cqw 3cqw}
+.rf2 .r-sizes{display:flex;flex-wrap:wrap;gap:2.4cqw;margin:2.6cqw 0 0}
+.rf2 .r-sizes span{width:12.6cqw;height:12.6cqw;border:1px solid #dcdcdc;border-radius:50%;display:grid;place-items:center;font-size:.8em}
+.rf2 .r-calc{float:right;font-size:.82em;color:#8b8b8b;border-bottom:1px solid #c9c9c9}
+.rf2 .r-btn{margin:4cqw 3.4cqw 0;background:#D6D6D6;color:#fff;text-align:center;padding:4cqw;font-size:.92em;letter-spacing:.04em}
+.rf2 .r-btn.on{background:#1B1B1B}
+.rf2 .r-return{text-align:center;padding:2.6cqw 6cqw 0;font-size:.7em;line-height:1.5;color:#4a4a4a}
+.rf2 .r-return b{font-weight:600;color:#1f1f1f}
+.rf2 .r-return span{display:block;color:#8b8b8b;margin-top:.6cqw}
+.rf2 .r-perks{display:grid;grid-template-columns:1fr 1fr;gap:4cqw 2cqw;padding:5cqw 3.4cqw 0;text-align:center}
+.rf2 .r-perks span{font-size:.62em;font-weight:600;letter-spacing:.02em}
+.rf2 .r-perks span b{display:block;color:#F3A6B6;font-size:2.1em;font-weight:400;line-height:1;margin-bottom:1.4cqw}
+.rf2 .r-tabs{display:flex;font-size:.78em;text-align:center;border-bottom:1px solid #e4e4e4;padding:4cqw 3.4cqw 0}
+.rf2 .r-tabs span{flex:1;padding:2.6cqw 1cqw;color:#8b8b8b;line-height:1.25}
+.rf2 .r-tabs span.on{color:#1f1f1f;border:1px solid #e4e4e4;border-bottom-color:#fff;margin-bottom:-1px}
+.rf2 .r-rev-head{display:flex;align-items:center;gap:2cqw;padding:3.4cqw}
+.rf2 .r-rev-head b{color:#FFB600;font-size:1.15em;font-weight:400;letter-spacing:-.04em}
+.rf2 .r-rev-head span{font-size:.9em}
+.rf2 .r-write{margin:0 3.4cqw;border:1px solid #e0e0e0;text-align:center;padding:2.6cqw;font-size:.85em}
+.rf2 .r-rev{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3cqw;padding:3.4cqw}
+.rf2 .r-rev figure{margin:0;border:1px solid #ededed}
+.rf2 .r-rev img{width:100%;aspect-ratio:1/.8;object-fit:cover;object-position:center top}
+.rf2 .r-rev figcaption{padding:2.2cqw}
+.rf2 .r-rev .who{font-size:.8em;display:flex;align-items:center;gap:1.2cqw}
+.rf2 .r-rev .who u{width:3.2cqw;height:3.2cqw;border-radius:50%;background:#1a1a1a;color:#fff;font-size:2cqw;
+  display:grid;place-items:center;text-decoration:none}
+.rf2 .r-rev .dt{font-size:.66em;color:#8b8b8b;margin:.8cqw 0}
+.rf2 .r-rev .st{color:#FFB600;font-size:.9em;letter-spacing:-.04em}
+.rf2 .r-rev p{margin:.8cqw 0 0;font-size:.74em;line-height:1.35}
+.rf2 .r-sticky{position:absolute;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e4e4e4;
+  display:flex;align-items:center;gap:2.6cqw;padding:2.6cqw 3.4cqw;box-shadow:0 -1cqw 3cqw rgba(0,0,0,.07)}
+.rf2 .r-sticky img{width:10cqw;flex:none}
+.rf2 .r-sticky .t{flex:1;min-width:0;font-size:.72em;line-height:1.25}
+.rf2 .r-sticky .t b{display:block;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rf2 .r-sticky .t span{color:#6f6f6f}
+.rf2 .r-sticky em{font-style:normal;background:#1B1B1B;color:#fff;font-size:.72em;font-weight:600;
+  letter-spacing:.04em;padding:2.6cqw 3.4cqw;white-space:nowrap}
+.rf2 .r-promo{text-align:center;padding:5cqw 5cqw 4.4cqw}
+.rf2 .r-promo b{display:block;font-size:1.5em;font-weight:400}
+.rf2 .r-promo span{display:block;font-size:.78em;color:#6f6f6f;margin-top:1.6cqw;line-height:1.4}
+.rf2 .r-rw{background:#F7E7E2;padding:4.4cqw 3.4cqw}
+.rf2 .r-rw .ttl{text-align:center;font-size:.7em;font-weight:600;letter-spacing:.16em;color:#8A4A28}
+.rf2 .r-rw .sub{text-align:center;font-size:.88em;margin-top:1.6cqw;color:#1f1f1f}
+.rf2 .r-rw .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2cqw;margin:3.4cqw 0}
+.rf2 .r-rw .steps span{text-align:center;font-size:.6em;line-height:1.35;color:#5a4038}
+.rf2 .r-rw .steps span b{display:block;font-size:1.5em;color:#8A4A28;font-weight:600;margin-bottom:.8cqw}
+.rf2 .r-rw .jb{background:#1B1B1B;color:#fff;text-align:center;padding:3cqw;font-size:.8em;font-weight:600;letter-spacing:.06em}
+.rf2 .r-foot{background:#E9E4E1;padding:4.4cqw 3.4cqw}
+.rf2 .r-foot .fl{font-weight:700;letter-spacing:.11em;font-size:1.05em}
+.rf2 .r-foot .fd{font-size:.72em;color:#6f6f6f;margin-top:1.6cqw;line-height:1.45}
+.rf2 .r-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 3cqw;margin-top:4.4cqw}
+.rf2 .r-cols b{display:block;font-size:.82em;font-weight:600;letter-spacing:.02em;margin-bottom:2.4cqw}
+.rf2 .r-cols span{display:block;font-size:.82em;color:#2b2b2b;margin-bottom:2cqw}
+.rf2 .r-soc{display:flex;justify-content:space-between;align-items:center;margin-top:3.4cqw;padding-right:2cqw;position:relative}
+.rf2 .r-soc svg{width:5.6cqw;height:5.6cqw;display:block}
+.rf2 .r-addr{font-size:.68em;color:#8b8b8b;margin-top:3.4cqw;line-height:1.45}
+.rf2 .r-peek{position:absolute;bottom:9.4cqw;left:14cqw;background:rgba(28,28,30,.94);color:#fff;
+  font-size:.62em;letter-spacing:.01em;padding:1.8cqw 3cqw;border-radius:1.6cqw;white-space:nowrap;
+  box-shadow:0 1.4cqw 3.4cqw rgba(0,0,0,.28)}
+.rf2 .r-peek::after{content:"";position:absolute;left:12.4cqw;bottom:-1.4cqw;width:3cqw;height:3cqw;
+  background:rgba(28,28,30,.94);transform:rotate(45deg);border-radius:.4cqw}
+.rf2 .r-pol{display:flex;flex-wrap:wrap;gap:2cqw 4cqw;margin-top:3.4cqw;font-size:.74em}
+.rf2 .r-bottom{background:#4E4E4E;color:#fff;display:flex;justify-content:space-between;
+  padding:2.6cqw 3.4cqw;font-size:.74em}
+.rf2 .r-est{margin:4cqw 3.4cqw 0;border-top:1px solid #e6e6e6;padding-top:4cqw;text-align:center;font-size:1.05em;color:#3a3a3a}
+.rf2 .r-est u{display:block;border:1px solid #dcdcdc;height:9cqw;margin-top:2.6cqw}
+.rf2 .r-swimg{display:block;width:100%;padding:0 3.4cqw;margin:2.6cqw 0 2.2cqw}
+.rf2 .r-thimg{display:block;width:100%;padding:3cqw 0 0 3.4cqw;object-fit:cover}
+.rf2 .r-swcard{display:block;width:100%;margin:2cqw 0}
+.rf2{height:100%;display:flex;flex-direction:column;background:#fff;color:#1f1f1f;
+     font-family:'Montserrat',Arial,sans-serif;font-size:4cqw;line-height:1.35;overflow:hidden}
+.rf2 .r-ann{flex:none;background:#F4E5E0;color:#2b2b2b;text-align:center;font-size:.85em;padding:1.7cqw 2cqw}
+.rf2 .r-hdr{flex:none;display:flex;align-items:center;gap:2cqw;padding:2.2cqw 3.2cqw;border-bottom:1px solid #ececec;background:#fff}
+.rf2 .r-hdr svg{display:block;flex:none}
+.rf2 .r-logo{flex:1;text-align:center;font-weight:700;font-size:1.28em;letter-spacing:.11em;color:#1a1a1a}
+.rf2 .r-ic{display:flex;gap:2.6cqw;align-items:center}
+.rf2 .r-burger{width:5.2cqw;height:3.8cqw}
+.rf2 .r-ic svg{width:4.4cqw;height:4.4cqw}
+.rf2 .r-bag{display:block;line-height:0}
+.rf2 .r-bag svg{width:4.4cqw;height:4.4cqw}
+.rf2 .r-bag{position:relative;font-size:.5em;font-weight:600}
+.rf2 .r-bag i{position:absolute;left:0;right:0;top:52%;text-align:center;font-style:normal;font-size:2.2cqw;color:#1a1a1a}
+.rf2 .r-body{flex:1;min-height:0;position:relative;overflow:hidden}
+.rf2 .r-crumb{padding:3.4cqw 3.4cqw;font-size:.66em;letter-spacing:.06em;color:#6f6f6f;text-transform:uppercase}
+.rf2 .r-filters{display:flex;border-top:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;font-size:.8em}
+.rf2 .r-filters span{flex:1;text-align:center;padding:2.6cqw 0;border-right:1px solid #e4e4e4;color:#2b2b2b}
+.rf2 .r-filters span:last-child{border-right:0;display:flex;gap:1.6cqw;align-items:center;justify-content:center}
+.rf2 .r-filters u{display:block;width:3.2cqw;height:3.2cqw;background:#9a9a9a;text-decoration:none}
+.rf2 .r-filters u.grid{background:
+   linear-gradient(#1a1a1a,#1a1a1a) 0 0/1.4cqw 1.4cqw no-repeat,
+   linear-gradient(#1a1a1a,#1a1a1a) 100% 0/1.4cqw 1.4cqw no-repeat,
+   linear-gradient(#1a1a1a,#1a1a1a) 0 100%/1.4cqw 1.4cqw no-repeat,
+   linear-gradient(#1a1a1a,#1a1a1a) 100% 100%/1.4cqw 1.4cqw no-repeat}
+.rf2 .r-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 3.4cqw;padding:17cqw 3.4cqw 0}
+.rf2 .r-card{min-width:0}
+.rf2 .r-ph{position:relative;aspect-ratio:1/.78;display:grid;place-items:center;overflow:hidden}
+.rf2 .r-ph img{width:100%;height:100%;object-fit:contain}
+.rf2 .r-badge{position:absolute;top:1.6cqw;left:1.6cqw;background:#1a1a1a;color:#fff;font-size:.52em;font-weight:600;
+  letter-spacing:.07em;text-transform:uppercase;padding:1.1cqw 2.2cqw;border-radius:2em}
+.rf2 .r-badge.new{background:#fff;color:#1a1a1a;border:1px solid #1a1a1a}
+.rf2 .r-badge.save{background:#F4E5E0;color:#8A4A28}
+.rf2 .r-stars{display:flex;align-items:center;gap:1.2cqw;margin:1.4cqw 0 .8cqw;font-size:.66em;color:#8b8b8b}
+.rf2 .r-stars b{color:#FFB600;font-size:1.25em;letter-spacing:-.04em;font-weight:400}
+.rf2 .r-name{font-size:.95em;line-height:1.22;color:#1f1f1f;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.rf2 .r-price{font-size:.95em;margin-top:.3cqw}
+.rf2 .r-sw{display:flex;gap:1cqw;margin:2cqw 0}
+.rf2 .r-sw i{width:5.4cqw;height:5.4cqw;border-radius:50%;background:#fff center/contain no-repeat;display:block;border:1px solid #e2e2e2}
+.rf2 .r-sw i.on{box-shadow:0 0 0 .7cqw #fff,0 0 0 1.3cqw #bdbdbd}
+.rf2 .r-sw u{width:5.4cqw;height:5.4cqw;border-radius:50%;border:1px solid #cfcfcf;color:#8b8b8b;
+  display:grid;place-items:center;font-size:.6em;text-decoration:none}
+.rf2 .r-qb{border:1px solid #e0e0e0;text-align:center;padding:2.6cqw 0;font-size:.85em;letter-spacing:.02em}
+.rf2 .r-h1{text-align:center;font-size:1.8em;font-weight:400;padding:5cqw 0 3.4cqw;letter-spacing:.01em}
+.rf2 .r-ship{margin:0 3.4cqw;background:#F7E7E2;border-radius:2.4cqw;padding:3cqw 3.4cqw;text-align:center}
+.rf2 .r-ship b{display:block;color:#9C4F2A;font-size:.85em;font-weight:600;line-height:1.3}
+.rf2 .r-ship u{display:block;height:1.8cqw;border-radius:2em;background:#E3CDC5;margin-top:2.4cqw;overflow:hidden;text-decoration:none}
+.rf2 .r-ship u b{display:block;height:100%;width:62%;background:#8A4A28}
+.rf2 .r-line{display:flex;gap:2.6cqw;padding:3.4cqw;border-bottom:1px solid #ededed;align-items:flex-start}
+.rf2 .r-line img{width:14cqw;flex:none}
+.rf2 .r-line .r-n{flex:1;min-width:0;font-size:.78em;line-height:1.3;color:#4a4a4a}
+.rf2 .r-line .r-n b{display:block;color:#1f1f1f;font-weight:400;font-size:1.1em;margin-bottom:.6cqw}
+.rf2 .r-line .r-n em{font-style:normal;color:#8b8b8b}
+.rf2 .r-qty{display:flex;align-items:center;justify-content:space-between;margin-top:2cqw}
+.rf2 .r-qty span{border:1px solid #dcdcdc;padding:1.4cqw 3.4cqw;font-size:.85em;letter-spacing:.3em}
+.rf2 .r-qty u{font-size:.8em;color:#4a4a4a}
+.rf2 .r-also{padding:3.4cqw;border-bottom:1px solid #ededed}
+.rf2 .r-also>b{display:block;font-size:1em;font-weight:500;margin-bottom:2.6cqw}
+.rf2 .r-also .it{display:flex;gap:2.6cqw;align-items:center;margin-bottom:2.6cqw}
+.rf2 .r-also .it:last-child{margin-bottom:0}
+.rf2 .r-also .it img{width:12cqw;flex:none}
+.rf2 .r-also .it div{flex:1;min-width:0;font-size:.74em;line-height:1.28;color:#1f1f1f}
+.rf2 .r-also .it u{display:block;color:#6f6f6f;margin-top:.8cqw;font-size:.92em}
+.rf2 .r-also .it em{font-style:normal;font-size:.9em;white-space:nowrap}
+.rf2 .r-total{padding:3.4cqw 3.4cqw 0;font-size:1em}
+.rf2 .r-total span{display:block;color:#6f6f6f;font-size:.78em;margin-top:1.2cqw}
+.rf2 .r-cta{margin:3cqw 3.4cqw;background:#1B1B1B;color:#fff;text-align:center;padding:3.4cqw;
+  font-size:.88em;font-weight:600;letter-spacing:.06em}
+.rf2 .r-thumbs{display:flex;gap:1.6cqw;padding:3cqw 3.4cqw;overflow:hidden}
+.rf2 .r-thumbs i{width:16cqw;height:16cqw;flex:none;background:#f3efec center/cover;display:block}
+.rf2 .r-thumbs i.on{box-shadow:0 0 0 1px #1a1a1a}
+.rf2 .r-opt{padding:0 3.4cqw;font-size:.9em}
+.rf2 .r-opt .lb{color:#1f1f1f}
+.rf2 .r-opt .lb em{font-style:normal;color:#4a4a4a;margin-left:2cqw}
+.rf2 .r-colors{display:flex;flex-wrap:wrap;gap:2.4cqw;margin:2.6cqw 0}
+.rf2 .r-colors i{width:13cqw;height:13cqw;border-radius:50%;background:#fff center/contain no-repeat;display:block}
+.rf2 .r-colors i.on{box-shadow:0 0 0 1px #9a9a9a}
+.rf2 .r-stock{display:flex;align-items:center;gap:1.8cqw;font-size:.72em;color:#9C4F2A;margin:0 0 3cqw}
+.rf2 .r-stock u{width:2cqw;height:2cqw;border-radius:50%;background:#9C4F2A;display:block;flex:none}
+.rf2 .r-hr{height:1px;background:#e6e6e6;margin:1cqw 3.4cqw 3cqw}
+.rf2 .r-sizes{display:flex;flex-wrap:wrap;gap:2.4cqw;margin:2.6cqw 0 0}
+.rf2 .r-sizes span{width:12.6cqw;height:12.6cqw;border:1px solid #dcdcdc;border-radius:50%;display:grid;place-items:center;font-size:.8em}
+.rf2 .r-calc{float:right;font-size:.82em;color:#8b8b8b;border-bottom:1px solid #c9c9c9}
+.rf2 .r-btn{margin:4cqw 3.4cqw 0;background:#D6D6D6;color:#fff;text-align:center;padding:4cqw;font-size:.92em;letter-spacing:.04em}
+.rf2 .r-btn.on{background:#1B1B1B}
+.rf2 .r-return{text-align:center;padding:2.6cqw 6cqw 0;font-size:.7em;line-height:1.5;color:#4a4a4a}
+.rf2 .r-return b{font-weight:600;color:#1f1f1f}
+.rf2 .r-return span{display:block;color:#8b8b8b;margin-top:.6cqw}
+.rf2 .r-perks{display:grid;grid-template-columns:1fr 1fr;gap:4cqw 2cqw;padding:5cqw 3.4cqw 0;text-align:center}
+.rf2 .r-perks span{font-size:.62em;font-weight:600;letter-spacing:.02em}
+.rf2 .r-perks span b{display:block;color:#F3A6B6;font-size:2.1em;font-weight:400;line-height:1;margin-bottom:1.4cqw}
+.rf2 .r-tabs{display:flex;font-size:.78em;text-align:center;border-bottom:1px solid #e4e4e4;padding:4cqw 3.4cqw 0}
+.rf2 .r-tabs span{flex:1;padding:2.6cqw 1cqw;color:#8b8b8b;line-height:1.25}
+.rf2 .r-tabs span.on{color:#1f1f1f;border:1px solid #e4e4e4;border-bottom-color:#fff;margin-bottom:-1px}
+.rf2 .r-rev-head{display:flex;align-items:center;gap:2cqw;padding:3.4cqw}
+.rf2 .r-rev-head b{color:#FFB600;font-size:1.15em;font-weight:400;letter-spacing:-.04em}
+.rf2 .r-rev-head span{font-size:.9em}
+.rf2 .r-write{margin:0 3.4cqw;border:1px solid #e0e0e0;text-align:center;padding:2.6cqw;font-size:.85em}
+.rf2 .r-rev{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:3cqw;padding:3.4cqw}
+.rf2 .r-rev figure{margin:0;border:1px solid #ededed}
+.rf2 .r-rev img{width:100%;aspect-ratio:1/.8;object-fit:cover;object-position:center top}
+.rf2 .r-rev figcaption{padding:2.2cqw}
+.rf2 .r-rev .who{font-size:.8em;display:flex;align-items:center;gap:1.2cqw}
+.rf2 .r-rev .who u{width:3.2cqw;height:3.2cqw;border-radius:50%;background:#1a1a1a;color:#fff;font-size:2cqw;
+  display:grid;place-items:center;text-decoration:none}
+.rf2 .r-rev .dt{font-size:.66em;color:#8b8b8b;margin:.8cqw 0}
+.rf2 .r-rev .st{color:#FFB600;font-size:.9em;letter-spacing:-.04em}
+.rf2 .r-rev p{margin:.8cqw 0 0;font-size:.74em;line-height:1.35}
+.rf2 .r-sticky{position:absolute;left:0;right:0;bottom:0;background:#fff;border-top:1px solid #e4e4e4;
+  display:flex;align-items:center;gap:2.6cqw;padding:2.6cqw 3.4cqw;box-shadow:0 -1cqw 3cqw rgba(0,0,0,.07)}
+.rf2 .r-sticky img{width:10cqw;flex:none}
+.rf2 .r-sticky .t{flex:1;min-width:0;font-size:.72em;line-height:1.25}
+.rf2 .r-sticky .t b{display:block;font-weight:400;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rf2 .r-sticky .t span{color:#6f6f6f}
+.rf2 .r-sticky em{font-style:normal;background:#1B1B1B;color:#fff;font-size:.72em;font-weight:600;
+  letter-spacing:.04em;padding:2.6cqw 3.4cqw;white-space:nowrap}
+.rf2 .r-promo{text-align:center;padding:5cqw 5cqw 4.4cqw}
+.rf2 .r-promo b{display:block;font-size:1.5em;font-weight:400}
+.rf2 .r-promo span{display:block;font-size:.78em;color:#6f6f6f;margin-top:1.6cqw;line-height:1.4}
+.rf2 .r-rw{background:#F7E7E2;padding:4.4cqw 3.4cqw}
+.rf2 .r-rw .ttl{text-align:center;font-size:.7em;font-weight:600;letter-spacing:.16em;color:#8A4A28}
+.rf2 .r-rw .sub{text-align:center;font-size:.88em;margin-top:1.6cqw;color:#1f1f1f}
+.rf2 .r-rw .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2cqw;margin:3.4cqw 0}
+.rf2 .r-rw .steps span{text-align:center;font-size:.6em;line-height:1.35;color:#5a4038}
+.rf2 .r-rw .steps span b{display:block;font-size:1.5em;color:#8A4A28;font-weight:600;margin-bottom:.8cqw}
+.rf2 .r-rw .jb{background:#1B1B1B;color:#fff;text-align:center;padding:3cqw;font-size:.8em;font-weight:600;letter-spacing:.06em}
+.rf2 .r-foot{background:#E9E4E1;padding:4.4cqw 3.4cqw}
+.rf2 .r-foot .fl{font-weight:700;letter-spacing:.11em;font-size:1.05em}
+.rf2 .r-foot .fd{font-size:.72em;color:#6f6f6f;margin-top:1.6cqw;line-height:1.45}
+.rf2 .r-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 3cqw;margin-top:4.4cqw}
+.rf2 .r-cols b{display:block;font-size:.82em;font-weight:600;letter-spacing:.02em;margin-bottom:2.4cqw}
+.rf2 .r-cols span{display:block;font-size:.82em;color:#2b2b2b;margin-bottom:2cqw}
+.rf2 .r-soc{display:flex;justify-content:space-between;align-items:center;margin-top:3.4cqw;padding-right:2cqw;position:relative}
+.rf2 .r-soc svg{width:5.6cqw;height:5.6cqw;display:block}
+.rf2 .r-addr{font-size:.68em;color:#8b8b8b;margin-top:3.4cqw;line-height:1.45}
+.rf2 .r-peek{position:absolute;bottom:9.4cqw;left:14cqw;background:rgba(28,28,30,.94);color:#fff;
+  font-size:.62em;letter-spacing:.01em;padding:1.8cqw 3cqw;border-radius:1.6cqw;white-space:nowrap;
+  box-shadow:0 1.4cqw 3.4cqw rgba(0,0,0,.28)}
+.rf2 .r-peek::after{content:"";position:absolute;left:12.4cqw;bottom:-1.4cqw;width:3cqw;height:3cqw;
+  background:rgba(28,28,30,.94);transform:rotate(45deg);border-radius:.4cqw}
+.rf2 .r-pol{display:flex;flex-wrap:wrap;gap:2cqw 4cqw;margin-top:3.4cqw;font-size:.74em}
+.rf2 .r-bottom{background:#4E4E4E;color:#fff;display:flex;justify-content:space-between;
+  padding:2.6cqw 3.4cqw;font-size:.74em}
+.rf2 .r-est{margin:4cqw 3.4cqw 0;border-top:1px solid #e6e6e6;padding-top:4cqw;text-align:center;font-size:1.05em;color:#3a3a3a}
+.rf2 .r-est u{display:block;border:1px solid #dcdcdc;height:9cqw;margin-top:2.6cqw}
+.rf2 .r-swimg{display:block;width:100%;padding:0 3.4cqw;margin:2.6cqw 0 2.2cqw}
+.rf2 .r-thimg{display:block;width:100%;padding:3cqw 0 0 3.4cqw;object-fit:cover}
+.rf2 .r-swcard{display:block;width:100%;margin:2cqw 0}
+.rf2 .r-promo.pad{padding:9cqw 5cqw 8cqw}
+.rf2 .r-promo.pad + .r-foot{padding-top:6cqw}
+.rf2 .r-promo.pad + .r-foot .r-cols{margin-top:6cqw}
+.rf2 .r-promo.pad + .r-foot .r-soc{margin-top:5cqw}
+.rf2 .r-promo.pad + .r-foot .r-pol{margin-top:5cqw}
+.rf2 .r-promo.pad + .r-foot .r-addr{margin-top:4.4cqw}
+.rf2 .r-swrow{display:flex;flex-wrap:wrap;gap:2.4cqw;padding:0 3.4cqw;margin:2.6cqw 0 2.2cqw}
+.rf2 .r-swrow i{width:13cqw;height:13cqw;border-radius:50%;background:#fff center/contain no-repeat;
+  display:block;position:relative}
+.rf2 .r-swrow i.on{box-shadow:0 0 0 1px #9a9a9a}
+.rf2 .r-swrow i.out{opacity:.4}
+.rf2 .r-swrow i.out::after{content:"";position:absolute;inset:0;border-radius:50%;
+  background:linear-gradient(to top left,transparent calc(50% - .35cqw),#8b8b8b calc(50% - .35cqw),
+  #8b8b8b calc(50% + .35cqw),transparent calc(50% + .35cqw))}
+.rf2 .r-gone{font-size:.72em;color:#8b8b8b;margin-bottom:3cqw;display:flex;flex-wrap:wrap;gap:0 2cqw;align-items:baseline}
+.rf2 .r-gone u{color:#1f1f1f;text-decoration:none;border-bottom:1px solid #1f1f1f}
+.rf2 .r-sizes span.off{color:#cfcfcf;border-color:#efefef;position:relative;overflow:hidden}
+.rf2 .r-sizes span.off::after{content:"";position:absolute;left:-10%;right:-10%;top:50%;height:1px;background:#e0e0e0;
+  transform:rotate(-38deg)}
+.cabgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.cab{background:#fff;border-radius:14px;padding:22px 24px;box-shadow:0 10px 26px rgba(0,0,0,.07)}
+.cab .tagm{display:inline-block;font:700 10.5px/1 'Montserrat',sans-serif;letter-spacing:.1em;text-transform:uppercase;
+  color:#6b6e69;background:#F0EDEA;border-radius:30px;padding:6px 11px;margin-bottom:12px}
+.cab h3{margin:0 0 7px;font-size:17px;font-weight:700}
+.cab p{margin:0;font-size:13.5px;color:#444;line-height:1.55}
+@media (max-width:820px){.cabgrid{grid-template-columns:minmax(0,1fr)}}
+.langsw{position:absolute;top:132px;right:56px;z-index:4;display:flex;gap:6px}
+.langsw a{font:700 11px/1 'Montserrat',sans-serif;letter-spacing:.08em;color:#262626;text-decoration:none;
+  border:1.5px solid #9a9a9a;border-radius:30px;padding:8px 12px;background:rgba(255,255,255,.6)}
+.langsw a:hover{background:#fff;border-color:#262626}
+.langsw a.on{background:#262626;color:#fff;border-color:#262626}
+@media (max-width:900px){.cover .logo{width:72px}.langsw{top:112px;right:24px}}
+@media (max-width:640px){.langsw{position:static;margin-top:18px}}
+.rf2 .r-qa{display:flex;align-items:center;justify-content:space-between;padding:3.4cqw;border-bottom:1px solid #ececec}
+.rf2 .r-qa b{font-size:1em;font-weight:500}
+.rf2 .r-qa u{text-decoration:none;font-size:1.1em;color:#6f6f6f}
+.rf2 .r-qa-photo{background:#fff;padding:2cqw 0}
+.rf2 .r-qa-photo img{width:62%;margin:0 auto;display:block}
+.rf2 .r-stars2{color:#FFB600;font-size:.8em;letter-spacing:-.04em}
+.rf2 .r-stars2 span{color:#8b8b8b;letter-spacing:0;margin-left:1cqw}
+.rf2 .r-qa-title{font-size:.95em;line-height:1.25;margin:1.4cqw 0 1cqw}
+.rf2 .r-qa-price{font-size:1em}
+.rf2 .r-picked{display:flex;align-items:center;gap:1.8cqw;font-size:.74em;color:#1f1f1f;margin-bottom:3cqw}
+.rf2 .r-picked::before{content:"";width:2.2cqw;height:2.2cqw;border-radius:50%;background:#2E8B57;flex:none}
+.rf2 .r-hero{position:relative}
+.rf2 .r-hero img{width:100%;display:block;border-radius:1cqw}
+.rf2 .r-hero-cta{position:absolute;left:50%;transform:translateX(-50%);bottom:5cqw;white-space:nowrap;background:#fff;color:#1a1a1a;border-radius:1cqw;
+  padding:2.8cqw 6cqw;font-size:.8em;font-weight:600;letter-spacing:.06em;box-shadow:0 1cqw 3cqw rgba(0,0,0,.18)}
+.rf2 .r-promo.pad2{padding:5cqw 5cqw 3cqw;text-align:center}
+.rf2 .r-promo.pad2 b{font-size:1.15em;font-weight:500}
+.rf2 .r-grid.sale{padding:5cqw 3.4cqw 0}
+.rf2 .r-grid.tight{padding:6cqw 3.4cqw 0}
+.rf2 .r-badge.sale-red{background:#D13B2E;color:#fff;border-radius:0;top:0;left:0;padding:1.4cqw 2.6cqw;font-weight:600}
+.rf2 .r-price s{color:#9a9a9a;font-size:.86em;margin-left:.6cqw}
+.rf2 .r-price em.off{font-style:normal;color:#D13B2E;font-weight:600;font-size:.86em;margin-left:.6cqw}
+.rf2 .r-ph.r4{border-radius:1cqw;overflow:hidden}
+.rf2 .r-radius-note{display:flex;gap:3.4cqw;padding:2.6cqw 3.4cqw 0;font-size:.6em;color:#8b8b8b}
+.rf2 .r-radius-note span{flex:1;text-align:center}
+.rf2 .r-h2{font-size:1.2em;font-weight:500;padding:5cqw 3.4cqw 3.4cqw}
+.rf2 .r-rail{display:flex;gap:2.6cqw;padding:0 0 0 3.4cqw;overflow:hidden}
+.rf2 .r-rail i{width:38cqw;height:42cqw;flex:none;background:#f3efec center/contain no-repeat;border-radius:1cqw;display:block}
+.rf2 .r-swipe{display:flex;align-items:center;justify-content:center;gap:2.4cqw;margin:4cqw 3.4cqw 0;
+  background:rgba(255,255,255,.96);border:1px solid #e6e1dd;border-radius:2em;padding:2.4cqw 4cqw;
+  box-shadow:0 1.4cqw 3.4cqw rgba(0,0,0,.1)}
+.rf2 .r-swipe svg{width:8cqw;height:8cqw;flex:none}
+.rf2 .r-swipe u{text-decoration:none;font-size:.78em;color:#1f1f1f}
+.rf2 .r-dots{display:flex;gap:1.6cqw;justify-content:center;margin-top:4cqw}
+.rf2 .r-dots b,.rf2 .r-dots span{width:2cqw;height:2cqw;border-radius:50%;background:#dcdcdc;display:block}
+.rf2 .r-dots b{background:#1a1a1a;width:5cqw;border-radius:2em}
+.rf2 .r-tiles{display:grid;grid-template-columns:1fr 1fr;gap:2.6cqw;padding:0 3.4cqw}
+.rf2 .r-tile{position:relative;border-radius:1cqw;overflow:hidden;background:#f3efec;text-align:center;padding-bottom:3cqw}
+.rf2 .r-tile img{width:100%;display:block;transition:transform .3s}
+.rf2 .r-tile b{display:block;font-size:.8em;font-weight:500;margin-top:2cqw}
+.rf2 .r-tile u{display:inline-block;margin-top:1.4cqw;font-size:.68em;text-decoration:none;
+  border-bottom:1px solid #1a1a1a;padding-bottom:.4cqw}
+.rf2 .r-tile.hov{box-shadow:0 1.6cqw 4cqw rgba(0,0,0,.16)}
+.rf2 .r-tile.hov img{transform:scale(1.07)}
+.rf2 .r-hovnote{text-align:right;padding:2cqw 8cqw 0;font-size:.62em;color:#8b8b8b}
+.rf2 .r-recs{display:grid;grid-template-columns:1fr 1fr;gap:3cqw;padding:0 3.4cqw}
+.rf2 .r-rec{text-align:center}
+.rf2 .r-rec img{width:100%;display:block;background:#fff;border-radius:1cqw}
+.rf2 .r-rec b{display:block;font-size:.72em;font-weight:400;margin-top:1.6cqw;line-height:1.25}
+.rf2 .r-rec span{display:block;font-size:.72em;color:#6f6f6f}
+.rf2 .r-h2.ctr{text-align:center;font-size:1.5em;font-weight:300;padding:5cqw 3.4cqw 4cqw}
+.rf2 .r-h2.ctr i{font-style:italic;font-weight:400}
+.rf2 .r-rail2{display:flex;gap:3.4cqw;padding:0 0 0 3.4cqw;overflow:hidden}
+.rf2 .r-rail2.dim{opacity:.45}
+.rf2 .r-scard{width:44cqw;flex:none}
+.rf2 .r-scard img{width:100%;display:block}
+.rf2 .r-scard .r-name{font-size:.78em;line-height:1.25;height:2.5em;overflow:hidden}
+.rf2 .r-scard .r-qb{margin-top:2cqw;padding:2.2cqw 0;font-size:.74em}
+.rf2 .r-swipe{margin:5cqw auto 0;width:max-content}
+.rf2 .r-sig{position:relative;background:#F4E5E0;display:flex;align-items:center;justify-content:space-between;
+  padding:4cqw 6cqw 7cqw;overflow:hidden}
+.rf2 .r-sig .l,.rf2 .r-sig .r{font-size:1.25em;font-weight:300;color:#9c7b72;letter-spacing:.01em}
+.rf2 .r-sig .r{font-style:italic}
+.rf2 .r-sig img{width:26cqw;transform:scale(1.18);transition:transform .4s;filter:drop-shadow(0 1cqw 2cqw rgba(0,0,0,.12))}
+.rf2 .r-sig-cta{position:absolute;left:0;right:0;bottom:2cqw;text-align:center;font-size:.68em;
+  color:#8A4A28;text-decoration:none;letter-spacing:.04em;border-bottom:0}
+.rf2 .r-sig-cta::after{content:"";display:block;width:26cqw;height:1px;background:#8A4A28;margin:.8cqw auto 0}
+.rf2 .r-revgrid{display:grid;grid-template-columns:1fr 1fr;gap:3cqw;padding:3.4cqw}
+.rf2 .r-rv{border:1px solid #ededed}
+.rf2 .r-rv img.ph{width:100%;aspect-ratio:1/.85;object-fit:cover;object-position:center top;display:block}
+.rf2 .r-rv b{display:block;font-size:.78em;font-weight:500;padding:2cqw 2.4cqw 0}
+.rf2 .r-rv em{display:block;font-style:normal;color:#FFB600;font-size:.8em;padding:.6cqw 2.4cqw 0;letter-spacing:-.04em}
+.rf2 .r-rv p{margin:0;font-size:.7em;line-height:1.3;color:#4a4a4a;padding:1.2cqw 2.4cqw 2cqw}
+.rf2 .r-rv-prod{display:flex;gap:2cqw;align-items:center;border-top:1px solid #ededed;padding:2.2cqw 2.4cqw}
+.rf2 .r-rv-prod i{width:11cqw;height:11cqw;flex:none;display:block;background:#fff center/contain no-repeat;
+  border:1px solid #f0f0f0}
+.rf2 .r-rv-prod span{font-size:.64em;line-height:1.25;color:#1f1f1f}
+.rf2 .r-ph2{position:relative}
+.rf2 .r-ph2 img{width:100%;display:block}
+.rf2 .r-shopall{margin:4cqw auto 0;width:max-content;background:#1B1B1B;color:#fff;
+  padding:2.6cqw 8cqw;font-size:.8em;font-weight:600;letter-spacing:.06em}
+.rf2 .r-swipe{margin:0 auto 3.4cqw}
+.rf2 .r-comrail{display:flex;gap:3cqw;padding:0 3.4cqw;overflow:hidden}
+.rf2 .r-com{width:56cqw;flex:none}
+.rf2 .r-com-v{position:relative;border-radius:1cqw;overflow:hidden}
+.rf2 .r-com-v img{width:100%;aspect-ratio:1/1.3;object-fit:cover;display:block}
+.rf2 .r-com-bag{position:absolute;top:2.4cqw;right:2.4cqw;width:9cqw;height:9cqw;border-radius:50%;
+  background:rgba(40,40,40,.6);color:#fff;display:grid;place-items:center;font-size:3.6cqw}
+.rf2 .r-com-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:13cqw;height:13cqw;
+  border-radius:50%;background:rgba(40,40,40,.45);color:#fff;display:grid;place-items:center;font-size:4.4cqw}
+.rf2 .r-com-prod{display:flex;gap:2.4cqw;align-items:center;background:#F6F6F6;border-radius:1cqw;
+  padding:2.4cqw;margin-top:2.4cqw}
+.rf2 .r-com-prod i{width:15cqw;height:15cqw;flex:none;display:block;background:#fff center/contain no-repeat;
+  border-radius:.8cqw}
+.rf2 .r-com-prod b{display:block;font-size:.72em;font-weight:500;line-height:1.25}
+.rf2 .r-com-prod span{display:block;font-size:.72em;color:#4a4a4a;margin-top:.8cqw}
+.pbody.duo1{grid-template-columns:minmax(0,.60fr) 336px minmax(0,.58fr) 200px minmax(0,1.18fr)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+.duo .phone{max-width:none}
+.duo .cap{font-size:11.5px;margin-top:8px}
+.duo .cap b{display:block;font:800 11px/1 'Montserrat',sans-serif;color:#262626;margin-bottom:3px}
+@media (max-width:1100px){.pbody.duo1{grid-template-columns:minmax(0,1fr)}}
+.view .ov{position:absolute;inset:0;pointer-events:none}
+.ov .swipe{position:absolute;left:50%;top:26.8%;transform:translate(-50%,-50%);display:flex;align-items:center;
+  gap:2.4cqw;white-space:nowrap;font:600 2.5cqw/1 'Montserrat',Arial,sans-serif;letter-spacing:.22em;
+  text-transform:uppercase;color:#9b948d}
+.ov .swipe svg{width:6.4cqw;height:2.6cqw;flex:none;color:#9b948d;animation:swipeArrow 2.4s ease-in-out infinite}
+.ov .swipe u{text-decoration:none}
+@keyframes swipeArrow{0%,100%{transform:translateX(-.9cqw);opacity:.45}50%{transform:translateX(.9cqw);opacity:1}}55%,100%{transform:translateX(-1.5cqw)}}
+.ov .sigclip{position:absolute;left:0;right:0;top:11.07%;height:10.95%;overflow:hidden;display:block}
+.ov .sigclip img{position:absolute;left:34.88%;top:0;width:27.13%;transform-origin:50% 50%;
+  animation:sigBreath 3.6s ease-in-out infinite}
+@keyframes sigBreath{0%,100%{transform:scale(1)}50%{transform:scale(1.075)}}
+@media (prefers-reduced-motion:reduce){.ov .sigclip img{animation:none}}
+.rf2 .r-swipe{margin:9.3cqw auto 3.4cqw}
+.rf2 .r-hero4{position:relative;background:#F6CECC}
+.rf2 .r-hero4 img{width:100%;display:block}
+.rf2 .r-hero4-cta{position:absolute;left:50%;top:92%;transform:translate(-50%,-50%);white-space:nowrap;
+  background:#1B1B1B;color:#fff;padding:3.4cqw 10cqw;font-size:.8em;font-weight:600;letter-spacing:.08em;
+  box-shadow:0 1.2cqw 3cqw rgba(0,0,0,.16)}
+.rf2 .r-pdph{padding:4cqw 3.4cqw 1.6cqw;font-size:1.02em;font-weight:600;line-height:1.28}
+.rf2 .r-pdprow{display:flex;align-items:center;justify-content:space-between;gap:2cqw;padding:0 3.4cqw 3cqw}
+.rf2 .r-pdpprice{font-size:1.05em;white-space:nowrap}
+.rf2 .r-pdpprice s{color:#9a9a9a;font-size:.82em;margin:0 .8cqw}
+.rf2 .offbadge{font-style:normal;background:#D13B2E;color:#fff;font-weight:700;font-size:.72em;
+  letter-spacing:.02em;padding:1.2cqw 2.4cqw;border-radius:.6cqw;margin-left:1.2cqw}
+.rf2 .r-pdpimg{padding:1cqw 3.4cqw 0}
+.rf2 .r-pdpimg img{width:100%;display:block}
+.rf2 .r-pdpnote{margin:3cqw 3.4cqw 0;border-top:1px solid #efefef;padding-top:2.6cqw;font-size:.66em;color:#8b8b8b;text-align:center}
+@keyframes sigBreath{0%,100%{transform:scale(1)}50%{transform:scale(1.075)}}
+@media (prefers-reduced-motion:reduce){.rf2 .sigclip img.ring{animation:none}}
+.livetag{display:inline-flex;align-items:center;gap:6px;font:700 10.5px/1 'Montserrat',sans-serif;letter-spacing:.08em;
+  text-transform:uppercase;color:#8A4A28;background:#F7E7E2;border:1px solid #E3CDC5;border-radius:30px;padding:6px 11px;margin-top:9px}
+.livetag i{width:7px;height:7px;border-radius:50%;background:#C0392B;animation:livePulse 1.4s ease-in-out infinite}
+@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.25}}
+.view{position:relative}
+.view .dov{position:absolute;left:0;right:0;z-index:3;font-family:'Open Sans',sans-serif}
+.dov-bar{bottom:0;background:#fff;border-top:1px solid #e6e6e6;padding:3.4cqw 3.6cqw;display:flex;align-items:center;gap:2.6cqw;box-shadow:0 -2cqw 5cqw rgba(0,0,0,.14)}
+.dov-bar .t{flex:1;font:600 3.5cqw/1.25 'Open Sans',sans-serif;color:#0d2140}
+.dov-bar .b{background:#1136d6;color:#fff;border-radius:2.4cqw;padding:2.6cqw 3.6cqw;font:700 3.6cqw/1 'Open Sans',sans-serif;white-space:nowrap}
+.dov-sheet{bottom:0;background:#fff;border-radius:4cqw 4cqw 0 0;box-shadow:0 -3cqw 8cqw rgba(0,0,0,.22);padding:4.4cqw 4.4cqw 5cqw}
+.dov-sheet h4{margin:0 0 1.6cqw;font:800 4.4cqw/1.2 'Montserrat',sans-serif;color:#0d2140}
+.dov-sheet p{margin:0 0 3.2cqw;font:400 3.4cqw/1.35 'Open Sans',sans-serif;color:#5b6b83}
+.dov-inp{border:1px solid #cfd8e6;border-radius:2.4cqw;padding:3cqw 3.2cqw;font:400 3.5cqw/1 'Open Sans',sans-serif;color:#9aa7b8;margin-bottom:2.4cqw;background:#fff}
+.dov-btn{background:#5cb800;color:#0b1a05;border-radius:2.6cqw;padding:3.4cqw;text-align:center;font:800 4cqw/1 'Montserrat',sans-serif}
+.dov-fine{margin:2.4cqw 0 0;font:400 2.9cqw/1.3 'Open Sans',sans-serif;color:#93a0b1;text-align:center}
+.dov-drop{background:#fff;border:1px solid #d7deea;border-radius:2.6cqw;box-shadow:0 3cqw 7cqw rgba(13,33,64,.18);overflow:hidden;margin:0 4.6cqw}
+.dov-drop div{display:flex;gap:2.2cqw;align-items:center;padding:2.9cqw 3.4cqw;font:400 3.4cqw/1.2 'Open Sans',sans-serif;color:#26364d;border-bottom:1px solid #eef1f6}
+.dov-drop div:last-child{border-bottom:0}
+.dov-drop b{font-weight:700;color:#0d2140}
+.dov-drop i{width:3.4cqw;height:3.4cqw;border-radius:50%;background:#e9eefb;flex:none}
+.dov-line{background:#fff;padding:0 4.6cqw}
+.dov-line span{display:block;background:#F2F7FF;border-left:.8cqw solid #1136d6;border-radius:1.6cqw;padding:2.6cqw 3cqw;font:400 3.1cqw/1.35 'Open Sans',sans-serif;color:#33465f}
+.dov-prog{background:#fff;padding:3cqw 4.6cqw 2cqw}
+.dov-prog .rail{height:1.6cqw;border-radius:1cqw;background:#e6ecf5;overflow:hidden}
+.dov-prog .rail i{display:block;height:100%;width:100%;background:#1136d6;border-radius:1cqw}
+.dov-prog .lb{display:flex;justify-content:space-between;margin-top:1.8cqw;font:600 3cqw/1 'Open Sans',sans-serif;color:#5b6b83}
+.dov-chip{padding:0 4.6cqw;text-align:center}
+.dov-chip span{display:inline-flex;align-items:center;gap:2cqw;background:#fff;border:1px solid #d7deea;border-radius:6cqw;padding:2.4cqw 4cqw;font:700 3.3cqw/1 'Open Sans',sans-serif;color:#1a3a6b;box-shadow:0 2cqw 5cqw rgba(13,33,64,.12)}
+.dov-chip span i{width:3.6cqw;height:3.6cqw;border-radius:50%;background:#1136d6;flex:none}
+.dov-head{top:0;background:#fff;border-bottom:1px solid #e9edf3;padding:2.6cqw 3.4cqw;display:flex;align-items:center;gap:2.4cqw;box-shadow:0 1.4cqw 4cqw rgba(13,33,64,.12)}
+.dov-head .lg{font:800 4cqw/1 'Montserrat',sans-serif;color:#0d2140}
+.dov-head .ph{margin-left:auto;font:700 3.4cqw/1 'Open Sans',sans-serif;color:#0d2140;display:flex;align-items:center;gap:1.4cqw}
+.dov-head .ph i{width:3.6cqw;height:3.6cqw;border-radius:1.2cqw;background:#25c15a;flex:none}
+.dov-head .cta{background:#1136d6;color:#fff;border-radius:2cqw;padding:2.2cqw 3cqw;font:700 3.2cqw/1 'Open Sans',sans-serif}
+.tk{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:0 0 26px}
+.tk div{background:#F7F7F7;border:2px solid #4a4a4a;border-radius:10px;padding:16px 14px;box-shadow:0 3px 0 #d2d2d2}
+.tk b{display:block;font:800 26px/1 'Montserrat',sans-serif;margin-bottom:6px}
+.tk span{font:600 11.5px/1.35 'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.03em;color:#444}
+@media (max-width:640px){.tk{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tmap{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.tmap .t{background:#fff;border-radius:14px;padding:18px 20px;box-shadow:0 10px 26px rgba(0,0,0,.07);border-left:4px solid var(--red)}
+.tmap .t.ok{border-left-color:var(--green)}
+.tmap .t b{display:block;font:800 15px/1.2 'Montserrat',sans-serif;margin-bottom:6px}
+.tmap .t span{font-size:13.5px;color:#444;line-height:1.5;display:block}
+.tmap .t em{font-style:normal;display:block;margin-top:8px;font:600 12px/1 'Montserrat',sans-serif;color:#777}
+@media (max-width:640px){.tmap{grid-template-columns:minmax(0,1fr)}}
+.ccard .do::before{content:"We fix: "!important}
+.two{align-items:start}
+.stats b{overflow-wrap:anywhere}
+.view .dov-prog{left:6%;right:6%}
+.sev.low{background:#EFF3EF;color:#3d5a45;border:1.5px solid #9bb3a2}
+.comp{margin-top:12px;padding-top:10px;border-top:1px dashed #cfcfcf;font-size:13px;line-height:1.45;color:#444}
+.comp a{color:#1136d6;font-weight:700;text-decoration:none}.comp a:hover{text-decoration:underline}
+
+
+/* ---- full-audit additions ---- */
+.kpis.k5{grid-template-columns:repeat(5,minmax(0,1fr));margin-bottom:14px}
+.kpis.k6{grid-template-columns:repeat(6,minmax(0,1fr));margin-bottom:38px}
+.kpi.sm b{font-size:24px}
+.kpi.sm span{font-size:11px}
+.lead.tl{font-size:16px;color:#444}
+.shots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px;margin:0 0 40px;align-items:start}
+.shots.n2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:1040px}
+.shots.n1{grid-template-columns:minmax(0,560px)}
+.shots.mob{grid-template-columns:repeat(3,minmax(0,230px));justify-content:start}
+.shots figure{margin:0}
+.shots .laptop{max-width:none}
+.shots .cap{text-align:left}
+.icards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
+.icard{background:#fff;border-radius:14px;padding:22px 22px 18px;box-shadow:0 10px 26px rgba(0,0,0,.07);border-left:5px solid var(--orange)}
+.icard.c{border-left-color:var(--red)}
+.ihead{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.ihead .sev{margin:0}
+.inum{font:800 22px/1 'Montserrat',sans-serif;color:#262626}
+.icard h3{margin:0 0 10px;font-size:18px;line-height:1.25;font-weight:700}
+.icard p{margin:0 0 10px;font-size:14px;line-height:1.6;color:#333}
+.icard code{font:12.5px/1.4 ui-monospace,Menlo,monospace;background:#F1F1F1;border-radius:4px;padding:1px 5px;word-break:break-word}
+.icard .ptag{margin-top:14px}
+.ptag.incl{background:#F1EFEC;color:#555;box-shadow:none;border:1.5px dashed #b9b2a8}
+.ptag.incl span{font:700 11px/1 'Montserrat',sans-serif;text-transform:uppercase;letter-spacing:.06em}
+.ptag.incl em{font-style:normal;font-size:13px;color:#333;text-align:right}
+.ghead{display:flex;align-items:baseline;gap:12px;margin:34px 0 14px;font-size:18px;text-transform:uppercase}
+.ghead span{font-weight:800;color:#8a8a8a}
+#strong .good{grid-template-columns:repeat(3,minmax(0,1fr))}
+.laptop{width:100%;max-width:560px;margin:0 auto}
+.laptop .lscreen{background:#141414;border-radius:14px 14px 4px 4px;padding:9px 9px 12px;box-shadow:0 22px 40px rgba(0,0,0,.18),inset 0 0 0 2px #3a3a3a}
+.laptop .lbar{display:flex;align-items:center;gap:6px;background:#ECECEC;border-radius:6px 6px 0 0;padding:6px 9px}
+.laptop .lbar i{width:8px;height:8px;border-radius:50%;background:#c9c9c9;display:block}
+.laptop .lbar span{flex:1;margin-left:8px;background:#fff;border-radius:5px;font:500 10.5px/1 'Open Sans',sans-serif;color:#555;padding:5px 9px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.laptop .lview{aspect-ratio:16/10;overflow:hidden;background:#fff;border-radius:0 0 3px 3px}
+.laptop .lview img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.laptop .lbase{height:12px;margin:0 -5%;background:linear-gradient(#d9d9d9,#bdbdbd);border-radius:0 0 14px 14px;position:relative}
+.laptop .lbase:after{content:"";position:absolute;left:42%;right:42%;top:0;height:5px;background:#a9a9a9;border-radius:0 0 6px 6px}
+@media (max-width:1100px){.kpis.k6{grid-template-columns:repeat(3,minmax(0,1fr))}.shots{grid-template-columns:repeat(2,minmax(0,1fr))}#strong .good{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){.kpis.k5,.kpis.k6{grid-template-columns:repeat(2,minmax(0,1fr))}.icards,.shots,.shots.n2,.shots.n1,#strong .good{grid-template-columns:minmax(0,1fr)}.shots.mob{grid-template-columns:repeat(2,minmax(0,1fr))}.slide{padding:44px 16px 50px}}
+</style>
+</head>
+<body>
+
+<section class="slide cover">
+  <img class="silk" src="img/silk.png" alt="">
+  <div class="brand">SWISS DETOX · INTERNATIONAL STORE</div>
+  <h1 style="max-width:8.4em">Store audit SWISS DETOX</h1>
+  <p class="sub">eu.swissdetox.com — 60 fixes across 15 areas of the store, from the first click to a completed EU checkout</p>
+  <p class="meta">October 2026 · Shopify · desktop + mobile</p>
+  <nav class="toc"><a href="#summary">Summary</a><a href="#sec-homepage-navigation">Homepage &amp; Navigation</a><a href="#sec-collection-page">Collection Page</a><a href="#sec-product-page">Product Page</a><a href="#sec-cart-checkout-international">Cart &amp; Checkout (International)</a><a href="#sec-mobile">Mobile</a><a href="#sec-technical-marketing">Technical &amp; Marketing</a><a href="#strong">What already works</a><a href="#price">Pricing</a></nav>
+</section>
+
+<section class="slide" id="summary">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><h2>The short version</h2></div>
+  <div class="kpis k5"><div class="kpi"><b>12</b><span>Critical Issues</span></div><div class="kpi"><b>48</b><span>Warnings</span></div><div class="kpi"><b>63</b><span>Done Right</span></div><div class="kpi"><b>110.5 h</b><span>Total work</span></div><div class="kpi"><b>$4,420</b><span>Fixed price</span></div></div>
+  <div class="kpis k6"><div class="kpi sm"><b>4 / 9</b><span>Products in SHOP menu</span></div><div class="kpi sm"><b>26</b><span>5★ reviews hidden</span></div><div class="kpi sm"><b>UK · NO</b><span>Missing at checkout</span></div><div class="kpi sm"><b>63/100</b><span>Mobile Lighthouse — Home</span></div><div class="kpi sm"><b>7.5s</b><span>Mobile LCP — Serum page</span></div><div class="kpi sm"><b>15.5 MB</b><span>Hero video per homepage visit</span></div></div>
+  <p class="lead"><b>Overview.</b> The international SWISS DETOX store already looks and feels like a luxury brand, and it gets many European details right that other stores miss. Every price shows the unit price per litre and "Incl. VAT, free shipping worldwide". Product pages state a delivery time. The legal set is complete (Imprint, 14-day right of withdrawal with model form). The checkout charges in euros in the EU and in Swiss francs in Switzerland, and offers local methods such as MobilePay. On top of that come a sticky header, predictive search with prices, six site languages, live chat, a loyalty programme and Google Analytics 4 with Google Ads tracking. The brand also owns strong proof: <strong>26 stored customer reviews averaging 5.0★</strong>, the <strong>Switzerland Prestige Awards "Luxury Skincare Brand of the Year"</strong> title, a dermatological study on 50 volunteers, and stockists from a Munich boutique to an international pharmacy.</p><p class="lead"><b>Where the sales are lost: the path to the product.</b> On desktop, clicking <strong>"SHOP" opens the homepage</strong>. The homepage itself is 13 sections and about 7,700 px of brand story <strong>without a single product or price</strong>. The hero button "Experience Swiss Detox" leads to a science page that has no link at all, and the FAQ ends the same way. The SHOP menu lists only 4 of the 9 products and leaves out the <strong>€25 Discovery Set</strong>, the natural first purchase in a €185–€755 range.</p><p class="lead"><b>The international checkout path has avoidable stops.</b> The <strong>"Check out" button stays disabled</strong> until a small "I accept the Terms and Conditions" box is ticked, and nothing tells the shopper why. The site promises "complimentary worldwide shipping" and the FAQ says "We deliver worldwide", yet <strong>the United Kingdom, Norway, Bulgaria and other countries can't be selected at checkout</strong>. The shipping policy lists Klarna, but none of our test checkouts (Finland, Germany, Switzerland) offered it. Product pages say "3 to 15 days" although EU orders arrive in 3–5 business days. Two products change price with the visitor's VAT rate (the Ritual is €755 in Germany and €796,23 in Finland). There is no country or currency selector, and the German version still shows English buttons.</p><p class="lead"><b>Proof that shoppers never see, and a slow mobile site.</b> The reviews app (Judge.me) was removed, so <strong>no star or review appears anywhere</strong>, although 23 five-star reviews of The Serum are still stored. Next to "Add to bag" there is nothing about Swiss manufacturing, testing or secure payment, and the button disappears after the first scroll. Measured with Lighthouse from our server in the EU, the mobile homepage and product page score <strong>63/100</strong>, with the main content appearing after <strong>7.2–7.5 s</strong>. The hero video downloads in full (15.5 MB) on every homepage visit, and 192 country-flag images load for a list nobody sees.</p><p class="lead"><b>Within the brand guidelines.</b> Nothing here needs a redesign. Every recommendation reuses the current Luxe theme, its sections, fonts and sage-and-gold palette, plus settings in Shopify Markets and Payments: menu and link targets, a product row on the homepage, a trust strip, a sticky bar, accordions, a country selector and reconnecting the reviews app. In total the audit found 12 critical issues, 48 warnings and 63 things already done right. The Critical list alone (33.5 hrs) clears the buyer journey from the first click to a completed EU checkout.</p>
+  <p class="lead tl"><b>Timeline.</b> About 4–5 weeks with one developer: Critical fixes live in week 1, Medium in weeks 2–4, Low in week 5 (110.5 hrs in total, fixed price $4,420).</p>
+</section>
+
+<section class="slide divider" id="sec-homepage-navigation">
+  <img class="silk" src="img/silk.png" alt="">
+  <span class="sev extra">4 areas · 17 fixes</span>
+  <h2>Homepage &amp; Navigation</h2>
+</section>
+
+<section class="slide blk" id="b01">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><span class="num">01</span><h2><span class="sev crit">Critical</span>Header &amp; Navigation<small>7 fixes · 13.5 h · $540</small></h2></div>
+  <div class="shots n3"><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b1-shop-menu.png" alt="SHOP dropdown on desktop" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">SHOP dropdown: text only, 4 of 9 products, no Discovery Set</figcaption></figure><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b1-language.png" alt="Language switcher modal" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">Six languages, but no country or currency choice; English carries the UK flag</figcaption></figure><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b1-search.png" alt="Predictive search results for serum" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">Predictive search works well: products with images and euro prices</figcaption></figure></div>
+  <div class="icards">
+    <article class="icard c"><div class="ihead"><span class="inum">01</span><span class="sev crit">Critical</span></div><h3>Clicking &quot;SHOP&quot; Opens the Homepage</h3><p>On desktop, the top-level items <code>SHOP</code> and <code>THE SCIENCE</code> and the sub-items "DERMA-REPLEX® 4-in-1" and "SWISS PRECISION" link to <code>/</code>. We clicked SHOP on the collection page and landed on the homepage, which has no products (Block 3). Everyone who clicks instead of hovering, and every tablet user, loses the way to the range. Point SHOP to <code>/collections/luxury-skin-health</code> and give the other items a real page or no link. On mobile, tapping SHOP correctly opens the sub-menu.</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+    <article class="icard c"><div class="ihead"><span class="inum">02</span><span class="sev crit">Critical</span></div><h3>The SHOP Menu Shows 4 of 9 Products</h3><p>The dropdown lists "All Collection", The Cleanser, The Serum, The Cream and The Skin Health Ritual. The Discovery Set (€25 in Germany, a 2 ml Cream + 5 ml Cleanser trial, the natural first purchase) and the Essential sponges (€15) are missing, as are the three Coming Soon products. There are no images, no prices and no way to shop by routine step. Rebuild SHOP as a small mega menu with the theme's own image blocks: "Shop by step" (Cleanse → Treat → Protect), "Sets &amp; gifts" (Ritual, Discovery Set), "Accessories" and one featured product tile, on desktop and in the mobile drawer. Rename "All Collection" to "Shop All".</p><div class="ptag"><span>Price</span><b>$240</b><em>6 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">03</span><span class="sev imp">Warning</span></div><h3>Primary Buttons Have Low Contrast Site-Wide</h3><p>The hero CTA, "Add to bag" and "Check out" use white text on light sage <code>rgb(155,175,173)</code>, a contrast of about <strong>2.3:1</strong>; WCAG asks for 4.5:1. The most important buttons are the faintest elements on the page. Keep the sage hue but use a deeper shade (for example <code>#5E706E</code>, about 5.2:1) or dark text on the current sage. It's a theme colour setting, not a redesign.</p><div class="ptag"><span>Price</span><b>$80</b><em>2 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">04</span><span class="sev imp">Warning</span></div><h3>A Language Switcher, but No Country or Currency Choice</h3><p>The header offers six languages (English, Deutsch, 日本語, 한국어, Français, Español) but no country or region. Prices follow the visitor's IP: euros in the EU, Swiss francs in Switzerland (the checkout switches to CHF and shows Swiss VAT). A Swiss customer browsing abroad, a gift buyer or a VPN user can't see their own price before checkout. English carries the UK flag, although the UK can't be selected at checkout (Block 10). The theme already renders a hidden country list. Enable the country/region selector next to the language and label English with a neutral "EN".</p><div class="ptag"><span>Price</span><b>$80</b><em>2 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">05</span><span class="sev imp">Warning</span></div><h3>The German Version Is Only Half Translated</h3><p>In Deutsch, the menu, body copy, "Inkl. MwSt." and "In den Warenkorb legen" are translated. The hero button "Experience Swiss Detox", "Shop the Collection", "Shop the Cream", headings such as "The Luxury of Daily Skin Health" and "Add to wishlist" stay in English. Germany has the fastest delivery in the shipping table (2–4 days) and the brand has a Munich boutique, so this is a key market. Finish the German strings in the translation app (Langify) and spot-check French and Spanish.</p><div class="ptag"><span>Price</span><b>$80</b><em>2 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">06</span><span class="sev imp">Warning</span></div><h3>Announcement Bar Promises &quot;Worldwide&quot; Without Specifics</h3><p>"Enjoy complimentary worldwide shipping." is the only message. It doesn't say how fast, and "worldwide" isn't accurate (Block 10). The shipping policy has better facts: Germany and Switzerland 2–4 business days, the rest of the EU 3–5. A bar like "Free shipping · Delivered in 3–5 business days across the EU" answers the next question at once.</p><div class="ptag incl"><span>Included in</span><em>Country-specific delivery time on product pages + announcement bar</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">07</span><span class="sev imp">Warning</span></div><h3>Brand Book PDF in the Shopping Menu</h3><p>"BRAND BOOK" under THE SCIENCE opens a PDF on <code>cdn.shopify.com</code>. It's a press and partner asset that takes shoppers out of the store with no way back to a product. Move it to a "Press &amp; Partners" link in the footer.</p><div class="ptag"><span>Price</span><b>$20</b><em>0.5 h &#183; $40/h</em></div></article>
+  </div>
+</section>
+
+<section class="slide blk" id="b02">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><span class="num">02</span><h2><span class="sev crit">Critical</span>Hero Section &amp; CTA<small>3 fixes · 5 h · $200</small></h2></div>
+  <div class="shots n2"><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b2-hero-firstview.png" alt="Homepage hero on desktop" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">First screen: abstract water video, &quot;Skin Health. Made Visible.&quot;, CTA &quot;Experience Swiss Detox&quot;</figcaption></figure><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b2-dead-end.png" alt="End of the Clinical Innovation page" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">Where the hero CTA leads: the Clinical Innovation page ends with an unlinked sentence</figcaption></figure></div>
+  <div class="icards">
+    <article class="icard c"><div class="ihead"><span class="inum">08</span><span class="sev crit">Critical</span></div><h3>The Hero Button Leads Away From the Products</h3><p>"❯ Experience Swiss Detox" opens <code>/pages/swiss-clinical-skincare</code>, a 3,660-px science page with 373 words and not one link. It ends with "Experience the power of DERMA-REPLEX in every product across the SWISS DETOX collection", which isn't linked. The first click most visitors make leads to a dead end. Make the primary button "Shop the Collection" and add a secondary text link "Discover the science".</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+    <article class="icard c"><div class="ihead"><span class="inum">09</span><span class="sev crit">Critical</span></div><h3>Science Pages and the FAQ Are Dead Ends</h3><p>Clinical Innovation (also a top-level menu item) and the FAQ page (20 questions) contain no link to a product or to the collection. They persuade, and then leave the reader with nothing but the menu. Add a closing section to these page templates with the theme's product-list section, "Shop the products with DERMA-REPLEX®" (Serum, Cream, Cleanser, Ritual), plus one button, and link FAQ answers to the products they mention. Apply it to the other science and story pages built on the same template.</p><div class="ptag"><span>Price</span><b>$120</b><em>3 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">10</span><span class="sev imp">Warning</span></div><h3>The Hero Never Says What the Brand Sells</h3><p>"Absolute Skin Defense / Skin Health. Made Visible. / Swiss precision, uncompromising results." sits over an abstract water video, with no product and no word like "skincare" or "serum". With "Detox" in the name, a cold visitor from an ad can't tell within three seconds whether this is skincare, supplements or a cleanse. Keep the video and typography and add one line: "Swiss luxury skincare with DERMA-REPLEX®, dermatologically tested, made in Switzerland."</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+  </div>
+</section>
+
+<section class="slide blk" id="b03">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><span class="num">03</span><h2><span class="sev crit">Critical</span>Product Cards &amp; Best Sellers (Homepage)<small>3 fixes · 10 h · $400</small></h2></div>
+  <div class="shots n1"><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b3-true-results.png" alt="True Results, Pure Confidence section" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">&quot;True Results, Pure Confidence&quot;: an empty logo wall, a paragraph and an FAQ button, with no results, reviews or awards</figcaption></figure></div>
+  <div class="icards">
+    <article class="icard c"><div class="ihead"><span class="inum">11</span><span class="sev crit">Critical</span></div><h3>No Products or Prices Anywhere on the Homepage</h3><p>The homepage has 13 sections: hero video, two image-with-text blocks, "A Clinical Innovation" accordions, DERMA-REPLEX tabs, "True Results", a Swiss story block, six journal posts, a slideshow and the newsletter. It runs about 7,700 px on desktop and 8,400 px on mobile, and our check found <strong>zero prices</strong> on it. A visitor ready to buy has to find the shop alone. Add "The Essentials" right after the hero with the theme's featured-collection section: Serum, Cream, Cleanser, Ritual and Discovery Set with image, price and (once restored) rating. Move the science accordions and tabs below it. No content is removed.</p><div class="ptag"><span>Price</span><b>$120</b><em>3 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">12</span><span class="sev imp">Warning</span></div><h3>&quot;True Results, Pure Confidence&quot; Shows No Results</h3><p>The section is a logo-wall section without logos: one paragraph and an FAQ button. The proof exists: 26 stored reviews averaging 5.0★ (23 of them on The Serum), the Switzerland Prestige Awards 2023/24 "Luxury Skincare Brand of the Year" title, the dermatological study on 50 volunteers aged 18–63, and stockists (Munich boutique, International Pharmacy Bordoni, W South Beach). Turn it into a proof band: rating with 2–3 short quotes, the award badge and an "Available at" line, all in the existing typography.</p><div class="ptag"><span>Price</span><b>$160</b><em>4 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">13</span><span class="sev imp">Warning</span></div><h3>No Customer or Instagram Imagery</h3><p>The homepage shows only studio and campaign photography. A curated @swissdetox Instagram or real-skin row (4–6 tiles, linked to the products shown) would add the human proof a €295 serum needs. Keep it curated, not a raw feed.</p><div class="ptag"><span>Price</span><b>$120</b><em>3 h &#183; $40/h</em></div></article>
+  </div>
+</section>
+
+<section class="slide blk" id="b04">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><span class="num">04</span><h2><span class="sev imp">Warning</span>Footer &amp; Trust Signals<small>4 fixes · 3.5 h · $140</small></h2></div>
+  <div class="shots n1"><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b4-footer.png" alt="Site footer" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">Footer: Swiss HQ with phone and a U.S. distributor, full legal set, 17 &quot;Useful&quot; links, 11 payment icons, but no contact link or e-mail</figcaption></figure></div>
+  <div class="icards">
+    <article class="icard"><div class="ihead"><span class="inum">14</span><span class="sev imp">Warning</span></div><h3>No Contact Link or E-mail in the Footer</h3><p>The footer shows a Swiss phone number but no e-mail address and no link to a contact page. <code>info@swissdetox.com</code> appears only inside the policies. The refund policy also lists a second number (+41 (0)75 555 50 00) next to the footer's +41 (0)44 36 36 212. Add a "Client Care" column: Contact, FAQ, Shipping &amp; delivery times, Returns, the e-mail and one phone number.</p><div class="ptag"><span>Price</span><b>$80</b><em>2 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">15</span><span class="sev imp">Warning</span></div><h3>&quot;Useful&quot; Column Is SEO Links, Not Help</h3><p>Sixteen of its seventeen links are keyword pages ("Anti-Blue Light", "Fulvic Acid", "Supercharged Formula"…). They don't help a shopper finish a purchase, and there is no "Shop" column. Rename it "Discover" and add a "Shop" column (Serum, Cream, Cleanser, Ritual, Discovery Set).</p><div class="ptag incl"><span>Included in</span><em>Footer restructure: Client Care + Shop columns</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">16</span><span class="sev imp">Warning</span></div><h3>A U.S. Distributor Address in the EU Footer</h3><p>The CONTACT column lists the Miami Beach distributor and "swissdetox.com". For a European paying €295, a U.S. address raises the question of customs fees, although the store's own shipping policy says only orders going outside the EU may be charged import duties. Keep the Swiss headquarters, drop the U.S. address on this store, and add a line such as "No customs fees on EU orders".</p><div class="ptag incl"><span>Included in</span><em>Footer restructure: Client Care + Shop columns</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">17</span><span class="sev imp">Warning</span></div><h3>Copy and Legal-Text Inconsistencies</h3><p>Small fixes found during the audit: "SWISS DETOX®™" uses both marks; "Headquarter" should read "Headquarters"; The Mask's description calls it "this luxurious toner"; sizes lead with U.S. units ("3.38fl.oz - 100 ml"); the shipping policy names "Swiss Detox UG" while every other page names Swiss Detox Sàrl; the cart page says shipping is "calculated at checkout" while every other page promises free shipping.</p><div class="ptag"><span>Price</span><b>$60</b><em>1.5 h &#183; $40/h</em></div></article>
+  </div>
+</section>
+
+<section class="slide divider" id="sec-collection-page">
+  <img class="silk" src="img/silk.png" alt="">
+  <span class="sev extra">1 area · 5 fixes</span>
+  <h2>Collection Page</h2>
+</section>
+
+<section class="slide blk" id="b05">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><span class="num">05</span><h2><span class="sev imp">Warning</span>Collection Page Layout<small>5 fixes · 10 h · $400</small></h2></div>
+  <div class="shots n3"><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b5-collection-top.png" alt="Collection page first screen" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">First screen of &quot;Absolute Skin Defense&quot;: copy only, titles and prices below the fold</figcaption></figure><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b5-grid.png" alt="Collection product grid, first row" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">Cards: price, unit price, &quot;Incl. VAT, free shipping worldwide&quot;; hover swaps the Serum image</figcaption></figure><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b5-coming-soon.png" alt="Collection product grid, second row" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">Row 2: &quot;In Stock&quot; ribbon on the Discovery Set (€26,37 for a Finnish visitor), three Coming Soon products</figcaption></figure></div>
+  <div class="icards">
+    <article class="icard"><div class="ihead"><span class="inum">18</span><span class="sev imp">Warning</span></div><h3>The Grid Starts Below the Fold</h3><p>About 330 px of copy (Anti-aging performance, Zero irritation, three ticks, a closing line) sits between the H1 and the products. On a 1440×900 screen the first product images start at about 736 px, so their titles and prices are below the fold. A visitor who clicked "Shop the Collection" first sees only text. Keep a one-line intro above the grid and move the rest below it.</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">19</span><span class="sev imp">Warning</span></div><h3>No Way to Shop by Need or Step</h3><p>All nine products sit in one collection, and the filters offer only Availability and Price. Skincare shoppers choose by concern and by routine step. Create four smart collections (Cleanse, Treat, Protect &amp; Restore, Sets &amp; Gifts), show them as tabs above the grid, and reuse them in the new SHOP menu.</p><div class="ptag"><span>Price</span><b>$160</b><em>4 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">20</span><span class="sev imp">Warning</span></div><h3>Cards Don&#x27;t Say What the Product Does</h3><p>"THE CLEANSER €185,00", "THE SERUM €295,00", "THE CREAM €425,00": a new visitor can't tell what each one does or where to start. Add one benefit line and the size under each title from a product metafield (for example "Calms visible redness · 50 ml").</p><div class="ptag"><span>Price</span><b>$80</b><em>2 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">21</span><span class="sev imp">Warning</span></div><h3>&quot;In Stock&quot; Ribbon Instead of Useful Badges</h3><p>The Discovery Set carries an "In Stock" ribbon, which says nothing because everything for sale is in stock. Use the same ribbon style for guidance: "Best seller" (The Serum, 23 reviews), "Start here" (Discovery Set), "Gift set" (The Skin Health Ritual).</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">22</span><span class="sev imp">Warning</span></div><h3>No Quick Add on Cards</h3><p>Every buyable product has a single variant, so an "Add to bag" button on the card (on hover on desktop, a small bag icon on mobile) can add it without leaving the grid. That helps returning customers re-ordering the Serum or the sponges.</p><div class="ptag"><span>Price</span><b>$80</b><em>2 h &#183; $40/h</em></div></article>
+  </div>
+</section>
+
+<section class="slide divider" id="sec-product-page">
+  <img class="silk" src="img/silk.png" alt="">
+  <span class="sev extra">4 areas · 14 fixes</span>
+  <h2>Product Page</h2>
+</section>
+
+<section class="slide blk" id="b06">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><span class="num">06</span><h2><span class="sev imp">Warning</span>Product Page — Images &amp; Pricing<small>4 fixes · 4.5 h · $180</small></h2></div>
+  <div class="shots n3"><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b6-product-top.png" alt="The Serum product page" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">The Serum (€295): no rating, no subtitle, no breadcrumbs</figcaption></figure><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b6-award.png" alt="Award image in the gallery" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">The award is only the 5th gallery image: &quot;Luxury Skincare Brand of the Year&quot;</figcaption></figure><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b6-discovery-price.png" alt="Discovery Set price for a Finnish visitor" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">Discovery Set: €26,37 for a Finnish visitor, €25,00 for a German one</figcaption></figure></div>
+  <div class="icards">
+    <article class="icard"><div class="ihead"><span class="inum">23</span><span class="sev imp">Warning</span></div><h3>The Title Doesn&#x27;t Say What the Product Is</h3><p>The H1 reads "THE SERUM". The full name ("Absolute Skin Defense Serum") and what it does (calms visible redness, evens tone) appear only in the description below the buttons. Add a one-line subtitle under the title from a metafield, for example "Absolute Skin Defense Serum: calms visible redness, evens tone · 50 ml". The same metafield feeds the collection cards.</p><div class="ptag"><span>Price</span><b>$80</b><em>2 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">24</span><span class="sev imp">Warning</span></div><h3>No Breadcrumbs</h3><p>There is no "Home › Shop › The Serum" trail. Because the top-level SHOP link currently opens the homepage, breadcrumbs would give product pages a reliable way back to the range. They also add structured data for Google.</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">25</span><span class="sev imp">Warning</span></div><h3>The Award Is Buried in the Gallery</h3><p>"Switzerland Prestige Awards 2023/24 Winner — Luxury Skincare Brand of the Year" exists only as the fifth image of the Serum gallery, which few shoppers open. Show it as a small gold line or badge under the price on every product page.</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">26</span><span class="sev imp">Warning</span></div><h3>Two Prices Change With the Visitor&#x27;s Country</h3><p>Seven products have fixed euro prices (€185, €295, €425…). The Discovery Set and The Skin Health Ritual don't: a German visitor sees <strong>€25,00 and €755,00</strong>, a Finnish one <strong>€26,37 and €796,23</strong>, which is Finland's 25.5% VAT applied to a price built on Germany's 19%. Other EU countries with a different VAT rate will likely see their own amounts. Cents on a luxury price look like a mistake, and two friends comparing prices see different numbers. Give both products fixed prices in the EU and CHF price lists, like the other seven.</p><div class="ptag"><span>Price</span><b>$20</b><em>0.5 h &#183; $40/h</em></div></article>
+  </div>
+</section>
+
+<section class="slide blk" id="b07">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><span class="num">07</span><h2><span class="sev crit">Critical</span>Product Page — Buy Section &amp; Trust<small>6 fixes · 10 h · $400</small></h2></div>
+  <div class="shots n2"><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b7-no-sticky-atc.png" alt="Product page after scrolling" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">1,700 px down the Serum page: no buy button anywhere, and an empty left column</figcaption></figure><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b7-coming-soon.png" alt="The Mask coming soon page" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">The Mask: &quot;COMING SOON&quot;, no price, no button, no way to be notified</figcaption></figure></div>
+  <div class="icards">
+    <article class="icard c"><div class="ihead"><span class="inum">27</span><span class="sev crit">Critical</span></div><h3>Nothing Reassures the Buyer Next to &quot;Add to Bag&quot;</h3><p>Free shipping and VAT are mentioned above the size selector, but below the button come only the wishlist button and the description. There is no "Made in Switzerland", no "Dermatologically tested", no secure-payment line and no return information. The store has all of these: Swiss manufacturing, a study on 50 volunteers, PayPal and card payments, a 14-day right of withdrawal. At €185–€755 per item, this is where hesitation happens. Add a four-line trust strip under the button with small gold icons: Made in Switzerland · Dermatologically tested · Free delivery in 3–5 business days · Secure checkout with PayPal &amp; cards.</p><div class="ptag"><span>Price</span><b>$80</b><em>2 h &#183; $40/h</em></div></article>
+    <article class="icard c"><div class="ihead"><span class="inum">28</span><span class="sev crit">Critical</span></div><h3>No Sticky Add-to-Bag Bar</h3><p>Tested by scrolling 1.2 screens past the button and confirmed by screenshot: once a shopper starts reading the 2,500-px description, there is no way to buy without scrolling back to the top, while the left half of the screen stays empty. The same is true on mobile (Block 12). Add a slim bar that appears after the main button scrolls out of view, with product name, price and "Add to bag", in the brand colours. One component covers desktop and mobile.</p><div class="ptag"><span>Price</span><b>$160</b><em>4 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">29</span><span class="sev imp">Warning</span></div><h3>&quot;Delivery Time: 3 to 15 Days¹&quot; Undersells EU Delivery</h3><p>Every product page shows one range for the whole world. The shipping policy says Germany and Switzerland 2–4 business days, the rest of the EU 3–5, and the rest of the world 10–15. The "¹" is never explained on the page (it refers to import duties outside the EU). For a shopper in Helsinki or Munich, "15 days" is the number that sticks. Show the visitor's own estimate ("Delivered to Finland in 3–5 business days"), using the country Shopify already detects, and repeat it in the announcement bar.</p><div class="ptag"><span>Price</span><b>$60</b><em>1.5 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">30</span><span class="sev imp">Warning</span></div><h3>Coming Soon Products Can&#x27;t Capture Demand</h3><p>The Mask, The Toner and The Soap show "SWISS Precision in Skincare. COMING SOON." with no price, no button and no form. A pre-order and back-in-stock app (Prequik) is installed and loads on every page, but it isn't switched on for these products. Enable its "Notify me" or pre-order button on all three, so launch interest turns into a mailing list.</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">31</span><span class="sev imp">Warning</span></div><h3>&quot;Add to Wishlist&quot; Competes With &quot;Add to Bag&quot;</h3><p>A large grey "Add to wishlist" button sits directly under the primary button with almost the same visual weight. Make it a small heart icon or text link so "Add to bag" is the obvious action.</p><div class="ptag"><span>Price</span><b>$20</b><em>0.5 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">32</span><span class="sev imp">Warning</span></div><h3>No Express Checkout on the Product Page</h3><p>Shop Pay, PayPal and Google Pay buttons appear on the cart page but not on product pages. For returning PayPal and Shop Pay customers, a one-tap button under "Add to bag" shortens the path from three steps to one.</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+  </div>
+</section>
+
+<section class="slide blk" id="b08">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><span class="num">08</span><h2><span class="sev imp">Warning</span>Product Page — Description &amp; Cross-sell<small>2 fixes · 8 h · $320</small></h2></div>
+  <div class="shots n2"><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b8-description.png" alt="Long ingredient description" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">Ingredient paragraphs come before the benefits, the usage and the suitability</figcaption></figure><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b8-cross-sell.png" alt="You may also like block" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">&quot;You may also like&quot;: four products, no ritual framing, no saving shown</figcaption></figure></div>
+  <div class="icards">
+    <article class="icard"><div class="ihead"><span class="inum">33</span><span class="sev imp">Warning</span></div><h3>The Description Is a 2,500-px Wall of Text</h3><p>On desktop the Serum description is 2,474 px tall (842 words); on mobile it is about 3,500 px. The ingredient paragraphs come before "Benefits", "Suitable for" and "Application", the things a buyer looks for first. Put 3–4 benefit bullets at the top, then accordions: Benefits · How to use · Key actives · Full ingredients · Clinical testing. Nothing is deleted, but the page becomes scannable. Applies to all 9 products.</p><div class="ptag"><span>Price</span><b>$160</b><em>4 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">34</span><span class="sev imp">Warning</span></div><h3>The Ritual Saving Is Invisible</h3><p>The Skin Health Ritual (Cleanser 100 ml + Serum 50 ml + Cream 50 ml) costs <strong>€755</strong> in Germany, against <strong>€905</strong> for the three products bought separately. That is €150 off, but it isn't stated anywhere, and "You may also like" shows the Ritual as just another product. Replace it with "Complete your ritual" (step 1 · 2 · 3 with one-click add) and a line "Save €150 with The Skin Health Ritual", using Shopify Search &amp; Discovery complementary products.</p><div class="ptag"><span>Price</span><b>$160</b><em>4 h &#183; $40/h</em></div></article>
+  </div>
+</section>
+
+<section class="slide blk" id="b09">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><span class="num">09</span><h2><span class="sev crit">Critical</span>Product Page — Reviews &amp; Social Proof<small>2 fixes · 5 h · $200</small></h2></div>
+  <div class="shots n1"><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b9-no-reviews.png" alt="End of product description with no reviews section" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">The Serum page goes straight from the ingredient list to &quot;You may also like&quot;: no rating, no reviews</figcaption></figure></div>
+  <div class="icards">
+    <article class="icard c"><div class="ihead"><span class="inum">35</span><span class="sev crit">Critical</span></div><h3>26 Five-Star Reviews Are Invisible</h3><p>The theme still calls the Judge.me reviews app, but the app is no longer installed. The page source says <code>Failed to render app block … judge-me-reviews … does not exist</code> for the review widget, the star badge and the app core. The ratings are still stored on the product cards: <strong>The Serum 5.0★ (23 reviews), The Cream 5.0★ (2), The Cleanser 5.0★ (1)</strong>. They render at 0×0 px, and product pages have no reviews section at all. Reinstall and reconnect Judge.me (or import the reviews into another app), re-enable the app embed, and show stars under the title and on the cards plus the full widget on every product page. The U.S. store has its own reviews; importing them via CSV would add depth. Turn the review-request e-mails back on.</p><div class="ptag"><span>Price</span><b>$160</b><em>4 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">36</span><span class="sev imp">Warning</span></div><h3>No Customer Photos or Results</h3><p>Skincare that promises visible results sells on real skin. Once reviews are back, ask for a photo in the review request (with loyalty points as a thank-you) and enable photo reviews. Over time this builds the before-and-after proof the homepage needs.</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+  </div>
+</section>
+
+<section class="slide divider" id="sec-cart-checkout-international">
+  <img class="silk" src="img/silk.png" alt="">
+  <span class="sev extra">1 area · 7 fixes</span>
+  <h2>Cart &amp; Checkout (International)</h2>
+</section>
+
+<section class="slide blk" id="b10">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><span class="num">10</span><h2><span class="sev crit">Critical</span>Shopping Cart &amp; Checkout<small>7 fixes · 9.5 h · $380</small></h2></div>
+  <div class="shots n4"><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b10-cart-drawer.png" alt="Cart drawer after adding The Serum" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">Cart drawer: &quot;Check out&quot; disabled (50% opacity) until the Terms box is ticked; empty space, no upsell</figcaption></figure><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b10-cart-page.png" alt="Cart page" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">Cart page: the faded &quot;Check out&quot; sits above fully active Shop Pay, PayPal and Google Pay buttons</figcaption></figure><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b10-checkout.png" alt="Shopify checkout first step" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">Checkout (Finland): express wallets, guest checkout, EUR; 209 countries, but no UK, Norway or Bulgaria</figcaption></figure><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b10-checkout-payment.png" alt="Checkout shipping and payment step" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">Free shipping confirmed; payment: card, PayPal, MobilePay; no Klarna although the policy lists it</figcaption></figure></div>
+  <div class="icards">
+    <article class="icard c"><div class="ihead"><span class="inum">37</span><span class="sev crit">Critical</span></div><h3>&quot;Check Out&quot; Is Disabled Until a Terms Box Is Ticked</h3><p>In the drawer and on the cart page, the "Check out" button is <code>disabled</code> and shown at 50% opacity until a small "I accept the Terms and Conditions" box is ticked. Clicking it does nothing and no message explains why. The express buttons on the cart page (Shop Pay, PayPal, Google Pay) work without the box, so the rule isn't even applied consistently, and Shopify's checkout already links the terms, withdrawal and privacy policies on the order step. Remove the box, or at least keep the button active and show an inline note when the box is missing. Have whoever owns the legal texts confirm the final wording.</p><div class="ptag"><span>Price</span><b>$60</b><em>1.5 h &#183; $40/h</em></div></article>
+    <article class="icard c"><div class="ihead"><span class="inum">38</span><span class="sev crit">Critical</span></div><h3>&quot;Worldwide Shipping&quot;, but No UK, Norway or Bulgaria at Checkout</h3><p>The checkout lists 209 countries, but the United Kingdom, Norway, Iceland, Liechtenstein, Bulgaria (an EU member), Monaco, Andorra, San Marino, Serbia and Ukraine are not among them. The storefront doesn't switch to the UK or Norway either, so these aren't active markets. Meanwhile the announcement bar says "complimentary worldwide shipping" and the FAQ says "We deliver worldwide". A UK shopper only finds out at the address step. Decide market by market. Bulgaria, Liechtenstein and Monaco are settings in Shopify Markets; the UK and Norway need their VAT schemes, which is a business decision. Until then, make the promise accurate ("Free shipping to the EU, Switzerland and 190+ countries") and show visitors from unsupported countries a short notice.</p><div class="ptag"><span>Price</span><b>$80</b><em>2 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">39</span><span class="sev imp">Warning</span></div><h3>Klarna Is Promised but Not Offered</h3><p>The shipping &amp; payment policy says "We offer: Credit Card, PayPal, Klarna, Shop Pay, Apple Pay &amp; Google Pay". In our test checkouts, Finland offered card, PayPal and MobilePay; Germany and Switzerland only card and PayPal. With baskets of €295–€755, pay-later and instalments are the preferred method for many German, Austrian, Dutch and Nordic shoppers. Activate Klarna in Shopify Payments (or correct the policy), and consider TWINT for Swiss customers.</p><div class="ptag"><span>Price</span><b>$60</b><em>1.5 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">40</span><span class="sev imp">Warning</span></div><h3>No Upsell in the Drawer or on the Cart Page</h3><p>After adding The Serum, the drawer shows one line item and about 280 px of empty space. That is the best moment to complete the routine: add "Complete your ritual" (The Cleanser, The Cream) and a small add-on (Essential sponges, €15) with one-click add, and suggest the Discovery Set when the bag holds no cream.</p><div class="ptag"><span>Price</span><b>$120</b><em>3 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">41</span><span class="sev imp">Warning</span></div><h3>&quot;Check Out&quot; Is the Weakest Button in the Cart</h3><p>In the drawer, the outlined "View bag" outweighs the pale sage "Check out". On the cart page, "Check out" is lighter than the Shop Pay, PayPal and Google Pay buttons below it. Make "Check out" the dominant dark button and turn "View bag" into a text link.</p><div class="ptag incl"><span>Included in</span><em>Raise primary-button contrast site-wide</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">42</span><span class="sev imp">Warning</span></div><h3>No Express Checkout in the Drawer</h3><p>Shop Pay, PayPal and Google Pay appear on the cart page only, but most shoppers check out from the drawer. Add the accelerated-checkout buttons under "Check out" in the drawer.</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">43</span><span class="sev imp">Warning</span></div><h3>Phone Number Required at Checkout</h3><p>The delivery address can't be submitted without a phone number, and the form doesn't say why. If the carrier needs it, add the hint "For delivery updates only"; if not, make the field optional in the checkout settings.</p><div class="ptag"><span>Price</span><b>$20</b><em>0.5 h &#183; $40/h</em></div></article>
+  </div>
+</section>
+
+<section class="slide divider" id="sec-mobile">
+  <img class="silk" src="img/silk.png" alt="">
+  <span class="sev extra">2 areas · 6 fixes</span>
+  <h2>Mobile</h2>
+</section>
+
+<section class="slide blk" id="b11">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><span class="num">11</span><h2><span class="sev imp">Warning</span>Mobile — Homepage &amp; Navigation<small>4 fixes · 2 h · $80</small></h2></div>
+  <div class="shots mob n3"><figure class="sh m"><div class="phone"><div class="screen"><div class="island"></div><div class="sbar"><span>9:41</span><svg viewBox="0 0 24 11"><rect x=".5" y=".5" width="20" height="10" rx="3" fill="none" stroke="#111"/><rect x="2" y="2" width="16" height="7" rx="1.5" fill="#111"/><rect x="21.5" y="3.5" width="1.8" height="4" rx=".9" fill="#111"/></svg></div><div class="view"><img class="shot" src="img/src/swissdetox-eu-b11-mobile-home.png" alt="Mobile homepage" loading="lazy"></div><div class="url"><span>eu.swissdetox.com</span></div></div></div><figcaption class="cap">Mobile homepage (390×844)</figcaption></figure><figure class="sh m"><div class="phone"><div class="screen"><div class="island"></div><div class="sbar"><span>9:41</span><svg viewBox="0 0 24 11"><rect x=".5" y=".5" width="20" height="10" rx="3" fill="none" stroke="#111"/><rect x="2" y="2" width="16" height="7" rx="1.5" fill="#111"/><rect x="21.5" y="3.5" width="1.8" height="4" rx=".9" fill="#111"/></svg></div><div class="view"><img class="shot" src="img/src/swissdetox-eu-b11-mobile-menu.png" alt="Mobile menu drawer" loading="lazy"></div><div class="url"><span>eu.swissdetox.com</span></div></div></div><figcaption class="cap">Menu drawer: text only, mostly empty</figcaption></figure><figure class="sh m"><div class="phone"><div class="screen"><div class="island"></div><div class="sbar"><span>9:41</span><svg viewBox="0 0 24 11"><rect x=".5" y=".5" width="20" height="10" rx="3" fill="none" stroke="#111"/><rect x="2" y="2" width="16" height="7" rx="1.5" fill="#111"/><rect x="21.5" y="3.5" width="1.8" height="4" rx=".9" fill="#111"/></svg></div><div class="view"><img class="shot" src="img/src/swissdetox-eu-b11-mobile-shop.png" alt="Mobile SHOP submenu" loading="lazy"></div><div class="url"><span>eu.swissdetox.com</span></div></div></div><figcaption class="cap">SHOP sub-menu: 4 of 9 products</figcaption></figure></div>
+  <div class="icards">
+    <article class="icard"><div class="ihead"><span class="inum">44</span><span class="sev imp">Warning</span></div><h3>First Shopping Button Is Over 1,000 px Down</h3><p>On a 390×844 phone, the first shopping button ("Shop the Collection") sits about 1,018 px down, and the 8,400-px homepage has no product grid at all. The best-sellers row from Block 3 fixes this on mobile too.</p><div class="ptag incl"><span>Included in</span><em>Best-sellers row on the homepage</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">45</span><span class="sev imp">Warning</span></div><h3>13 px Body Text on Mobile</h3><p>Body and description text measure 13 px on mobile; 16 px is the comfortable minimum. The site relies on long science copy, so small text makes it tiring to read. Raise the mobile base size to 15–16 px in the same typeface. It's a theme setting.</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">46</span><span class="sev imp">Warning</span></div><h3>Menu Drawer Is Text-Only and Mostly Empty</h3><p>The drawer lists five words, Account and the language, leaving about half the screen blank. The SHOP sub-menu holds five text links. Use that space for 2–4 product tiles (Serum, Cream, Ritual, Discovery Set) and "FAQ" / "Contact" links, as part of the SHOP menu rebuild.</p><div class="ptag incl"><span>Included in</span><em>SHOP menu rebuild (desktop + mobile drawer)</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">47</span><span class="sev imp">Warning</span></div><h3>Floating Widgets Cover Content and Each Other</h3><p>Four floating elements share the bottom corners: the cookie-settings button (bottom-left), the loyalty launcher, the chat bubble and the TrustedSite badge (bottom-right). The chat bubble sits almost exactly on top of the loyalty launcher, so the loyalty programme is practically invisible on desktop and mobile (Block 14). On the mobile product page they cover the quantity selector. Move the loyalty launcher to the left, replace the cookie icon with a "Cookie settings" footer link, and hide the TrustedSite badge on mobile.</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+  </div>
+</section>
+
+<section class="slide blk" id="b12">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><span class="num">12</span><h2><span class="sev crit">Critical</span>Mobile — Product Page<small>2 fixes · 0 h · $0</small></h2></div>
+  <div class="shots mob n2"><figure class="sh m"><div class="phone"><div class="screen"><div class="island"></div><div class="sbar"><span>9:41</span><svg viewBox="0 0 24 11"><rect x=".5" y=".5" width="20" height="10" rx="3" fill="none" stroke="#111"/><rect x="2" y="2" width="16" height="7" rx="1.5" fill="#111"/><rect x="21.5" y="3.5" width="1.8" height="4" rx=".9" fill="#111"/></svg></div><div class="view"><img class="shot" src="img/src/swissdetox-eu-b12-mobile-pdp.png" alt="Mobile product page first screen" loading="lazy"></div><div class="url"><span>eu.swissdetox.com</span></div></div></div><figcaption class="cap">First screen: &quot;Add to bag&quot; is below the fold; widgets cover the quantity</figcaption></figure><figure class="sh m"><div class="phone"><div class="screen"><div class="island"></div><div class="sbar"><span>9:41</span><svg viewBox="0 0 24 11"><rect x=".5" y=".5" width="20" height="10" rx="3" fill="none" stroke="#111"/><rect x="2" y="2" width="16" height="7" rx="1.5" fill="#111"/><rect x="21.5" y="3.5" width="1.8" height="4" rx=".9" fill="#111"/></svg></div><div class="view"><img class="shot" src="img/src/swissdetox-eu-b12-mobile-no-sticky.png" alt="Mobile product page after scrolling" loading="lazy"></div><div class="url"><span>eu.swissdetox.com</span></div></div></div><figcaption class="cap">2,100 px down: ingredient text, no buy button</figcaption></figure></div>
+  <div class="icards">
+    <article class="icard c"><div class="ihead"><span class="inum">48</span><span class="sev crit">Critical</span></div><h3>No Sticky Add-to-Bag on Mobile</h3><p>On the first screen, "Add to bag" starts at 873 px of an 844-px screen, so a mobile shopper never sees it without scrolling. Tested by scrolling to 1,934 px and confirmed by screenshot: no buy button anywhere while reading. This is the same sticky-bar component as in Block 7.</p><div class="ptag incl"><span>Included in</span><em>Sticky add-to-bag bar (desktop + mobile)</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">49</span><span class="sev imp">Warning</span></div><h3>About Four Screens of Text Before the Cross-Sell</h3><p>The Serum page is 5,431 px tall on mobile; the description alone takes about 3,500 px, and "You may also like" starts at 4,540 px. The accordion structure from Block 8 shortens this to roughly two screens.</p><div class="ptag incl"><span>Included in</span><em>Description → benefit bullets + accordions</em></div></article>
+  </div>
+</section>
+
+<section class="slide divider" id="sec-technical-marketing">
+  <img class="silk" src="img/silk.png" alt="">
+  <span class="sev extra">3 areas · 11 fixes</span>
+  <h2>Technical &amp; Marketing</h2>
+</section>
+
+<section class="slide blk" id="b13">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><span class="num">13</span><h2><span class="sev crit">Critical</span>Speed &amp; Technical<small>3 fixes · 8 h · $320</small></h2></div>
+  <div class="icards">
+    <article class="icard c"><div class="ihead"><span class="inum">50</span><span class="sev crit">Critical</span></div><h3>Mobile Pages Load Slowly (Lighthouse 63/100, LCP 7.2–7.5 s)</h3><p>Measured with Google Lighthouse (mobile) from our server in the EU. Homepage: Performance <strong>63/100</strong>, Largest Contentful Paint <strong>7.2 s</strong>, First Contentful Paint 2.2 s, Total Blocking Time 390 ms. The Serum page: <strong>63/100</strong>, LCP <strong>7.5 s</strong>. Collection: 69/100, LCP 3.6 s, layout shift 0.13. Google's target for LCP is 2.5 s. The main causes are fixable. The homepage hero video (720p, 4.5 Mbps) downloads in full on every visit: <strong>15.5 MB</strong> of an 18.6 MB page with 441 requests. On the Serum page the 1080p application video (837 KB) is requested twice at page start, although it's only the second gallery slide. About a dozen stylesheets block rendering, including the pre-order and geo-redirect apps' CSS. Use a compressed poster image as the first paint and a lighter mobile rendition, load product videos only when their slide opens, and defer the app stylesheets.</p><div class="ptag"><span>Price</span><b>$240</b><em>6 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">51</span><span class="sev imp">Warning</span></div><h3>192 Country Flags Load for a Hidden List</h3><p>Every page downloads 192 flag images (704 KB, the largest 121 KB) for a country list that never appears. The DOM holds 226 flag images, none of them lazy-loaded. Remove the hidden list from the header template, or load the flags only when a country selector actually opens (Block 1).</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">52</span><span class="sev imp">Warning</span></div><h3>The Geo-Redirect App Errors and Redirects Test Tools</h3><p>Every page logs <code>[NGR APP]: Store data not found. Contact app support.</code> after a 500 response from the app's server. Google's PageSpeed Insights, which runs from the U.S., was redirected to <code>swissdetox.com/…?ngr-redirected=1</code>, so Google's public speed data for the EU URLs actually describes the U.S. store. That is why this report uses our own EU measurements. Ask the app's support to fix the store record and to exclude bots and testing tools from redirects. Then check in Search Console that Google crawls the EU pages as they are.</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+  </div>
+</section>
+
+<section class="slide blk" id="b14">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><span class="num">14</span><h2><span class="sev imp">Warning</span>Marketing — Popups &amp; Email Capture<small>3 fixes · 5.5 h · $220</small></h2></div>
+  <div class="shots n2"><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b14-widget-overlap.png" alt="Chat bubble covering the loyalty launcher" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">Bottom-right corner, zoomed: the chat bubble sits on top of the loyalty launcher; the TrustedSite badge overlaps both</figcaption></figure><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b14-loyalty.png" alt="Loyalty programme panel" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">Loyalty panel: 50 points for an account (system font, generic icon); it covers &quot;Add to bag&quot; when open</figcaption></figure></div>
+  <div class="icards">
+    <article class="icard"><div class="ihead"><span class="inum">53</span><span class="sev imp">Warning</span></div><h3>No E-mail Capture Before the Footer</h3><p>During our session across homepage, collection and product pages, no welcome or exit-intent offer appeared. The only sign-up is the newsletter at the very bottom of the homepage ("skincare tips as well as exclusive offers"), with no concrete reason to join. At €185–€755, most first visits won't buy, so capturing the e-mail is how they come back. Add a tasteful, delayed (30 s or 50% scroll) or exit-intent sign-up in the brand style, with a luxury-appropriate offer, for example a complimentary Discovery Set with the first order, or early access plus loyalty points.</p><div class="ptag"><span>Price</span><b>$120</b><em>3 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">54</span><span class="sev imp">Warning</span></div><h3>Loyalty Widget Looks Off-Brand</h3><p>The loyalty panel uses a system font, a generic shop-front icon and a grey button, unlike the brand's typography and gold accents. Restyle it with the brand font and colours so the programme feels like part of the brand.</p><div class="ptag"><span>Price</span><b>$40</b><em>1 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">55</span><span class="sev imp">Warning</span></div><h3>No Refer-a-Friend</h3><p>The rewards view shows one reward (€15 off at 750 points) and no referral offer. For a product with five-star reviews, referrals are the cheapest way to win new customers. Switch on the referral feature of the loyalty app ("Give €15, get 150 points" or similar).</p><div class="ptag"><span>Price</span><b>$60</b><em>1.5 h &#183; $40/h</em></div></article>
+  </div>
+</section>
+
+<section class="slide blk" id="b15">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><span class="num">15</span><h2><span class="sev imp">Warning</span>Marketing — Email Automations &amp; Analytics<small>5 fixes · 16 h · $640</small></h2></div>
+  <div class="shots n1"><figure class="sh d"><div class="laptop"><div class="lscreen"><div class="lbar"><i></i><i></i><i></i><span>eu.swissdetox.com</span></div><div class="lview"><img src="img/src/swissdetox-eu-b15-newsletter.png" alt="Newsletter section" loading="lazy"></div></div><div class="lbase"></div></div><figcaption class="cap">The only sign-up point: a newsletter form at the bottom of the homepage; its &quot;privacy policy&quot; link opens the U.S. store</figcaption></figure></div>
+  <div class="icards">
+    <article class="icard"><div class="ihead"><span class="inum">56</span><span class="sev imp">Warning</span></div><h3>No E-mail Marketing Platform Detected</h3><p>The newsletter form adds subscribers to Shopify's customer list, and no Klaviyo, Omnisend or similar script runs on the storefront. Shopify's abandoned-checkout e-mail may be active (the checkout says the e-mail is used for "cart reminders"), but welcome, browse-abandonment, post-purchase and replenishment flows can't be confirmed from outside. For a €295 serum that lasts about two months, set up and verify, in English and German: a welcome series (DERMA-REPLEX story plus the Discovery Set), browse abandonment, 3-step cart and checkout abandonment, post-purchase "how to use", a replenishment reminder at about 7 weeks, and loyalty e-mails.</p><div class="ptag"><span>Price</span><b>$480</b><em>12 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">57</span><span class="sev imp">Warning</span></div><h3>Google Analytics Counts Every Page View Twice</h3><p>Each page sends two <code>page_view</code> hits to the same GA4 property (G-0HGFQZQS8M): one from the Google &amp; YouTube app and one from a custom pixel. Page views and engagement are inflated, and conversion rates per page view are distorted. Check whether the custom pixel also sends purchases. Keep one source (the Google &amp; YouTube app) and remove the duplicate.</p><div class="ptag"><span>Price</span><b>$60</b><em>1.5 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">58</span><span class="sev imp">Warning</span></div><h3>No Meta (Facebook &amp; Instagram) Pixel</h3><p>Google Analytics, Google Ads and Merchant Center tags are installed, but no request goes to Meta on any page we tested. For a visual brand with an Instagram presence, that means no retargeting audiences and no conversion data for Instagram ads. Connect the Facebook &amp; Instagram channel pixel with the conversions API, tied to the cookie consent.</p><div class="ptag"><span>Price</span><b>$80</b><em>2 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">59</span><span class="sev imp">Warning</span></div><h3>Newsletter Consent Links to the U.S. Store</h3><p>The sign-up text says the newsletter is sent "in accordance with our privacy policy", but the link opens <code>swissdetox.com/policies/privacy-policy</code>, the U.S. store, instead of this store's own policy. Point it to <code>/policies/privacy-policy</code> and add one line on why to join (for example early access to The Mask).</p><div class="ptag"><span>Price</span><b>$20</b><em>0.5 h &#183; $40/h</em></div></article>
+    <article class="icard"><div class="ihead"><span class="inum">60</span><span class="sev imp">Warning</span></div><h3>Review-Request E-mails Stopped</h3><p>Judge.me sent the post-delivery review requests. With the app gone (Block 9), no new reviews are being collected.</p><div class="ptag incl"><span>Included in</span><em>Restore the Judge.me reviews</em></div></article>
+  </div>
+</section>
+
+<section class="slide" id="strong">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><h2>What already works<small>63 things the store already does right — we keep them and build on them.</small></h2></div>
+  <h3 class="ghead"><span>01</span>Header &amp; Navigation</h3><div class="good"><div class="gcard"><div class="ck">✓</div><h3>Sticky Header</h3><p>Tested by scrolling 1,300 px down and back up: the header with logo, menu, search and bag stays pinned on desktop and on mobile.</p></div><div class="gcard"><div class="ck">✓</div><h3>Predictive Search With Products and Prices</h3><p>Typing "serum" returns six products with images, euro prices and unit prices, plus the matching content page.</p></div><div class="gcard"><div class="ck">✓</div><h3>Bag, Account and Wishlist Always Reachable</h3><p>Search, wishlist, account and bag icons sit top-right on every page, and the bag count updated to "1" as soon as we added a product.</p></div><div class="gcard"><div class="ck">✓</div><h3>Calm, Uncluttered Top Navigation</h3><p>Five top-level items in letter-spaced capitals suit the luxury positioning. The structure needs better destinations, not more items.</p></div><div class="gcard"><div class="ck">✓</div><h3>Six Site Languages</h3><p>The language switcher sits in the header and in the mobile drawer, and switching keeps the visitor on the same page.</p></div></div><h3 class="ghead"><span>02</span>Hero Section &amp; CTA</h3><div class="good"><div class="gcard"><div class="ck">✓</div><h3>One Static Hero, No Rotating Carousel</h3><p>A single video banner with one message and one button. Nothing auto-advances before the visitor has read it, which is the right choice.</p></div><div class="gcard"><div class="ck">✓</div><h3>CTA Above the Fold on Desktop and Mobile</h3><p>The button is visible in the first viewport at 1440×900 and at 390×844. Only its destination needs to change.</p></div><div class="gcard"><div class="ck">✓</div><h3>A Premium, Consistent Visual Identity</h3><p>Gold logo, sage palette, generous white space and letter-spaced headlines read as Swiss luxury. Every recommendation in this report works inside this look.</p></div></div><h3 class="ghead"><span>03</span>Product Cards &amp; Best Sellers (Homepage)</h3><div class="good"><div class="gcard"><div class="ck">✓</div><h3>Two Clear Shop Buttons in the Story Sections</h3><p>"Shop the Collection" (section 2) and "Shop the Cream" (section 3) link straight to the collection and to The Cream.</p></div><div class="gcard"><div class="ck">✓</div><h3>Real-World Presence in the Journal</h3><p>Posts about the Munich boutique, the International Pharmacy Bordoni, W South Beach and the founder's note give the brand credibility. They become more valuable once they are framed as proof (see above).</p></div></div><h3 class="ghead"><span>04</span>Footer &amp; Trust Signals</h3><div class="good"><div class="gcard"><div class="ck">✓</div><h3>Complete European Legal Set</h3><p>Imprint with company register IDs, terms, privacy, a refund policy with the 14-day right of withdrawal and model form, shipping &amp; payment, and customer information, all linked in the footer and in the checkout.</p></div><div class="gcard"><div class="ck">✓</div><h3>Payment Icons Including Local Methods</h3><p>Eleven icons: Amex, Apple Pay, BLIK, Google Pay, Maestro, Mastercard, MobilePay, PayPal, Shop Pay, UnionPay, Visa. They repeat in the cart.</p></div><div class="gcard"><div class="ck">✓</div><h3>FAQ Is One Click Away</h3><p>"FAQ | Frequently Asked Questions" is the first link in the "Useful" column on every page.</p></div><div class="gcard"><div class="ck">✓</div><h3>Real Company Details</h3><p>The Swiss headquarters in Zug with a phone number shows a real company behind the brand, which matters at these price points.</p></div><div class="gcard"><div class="ck">✓</div><h3>Social Links</h3><p>Instagram, Pinterest and LinkedIn are linked in the footer and in the mobile menu.</p></div></div><h3 class="ghead"><span>05</span>Collection Page Layout</h3><div class="good"><div class="gcard"><div class="ck">✓</div><h3>Relevant H1 and Intro Copy</h3><p>"Absolute Skin Defense" with a DERMA-REPLEX® explanation and the clinical skin-compatibility claim gives the collection meaning and SEO text.</p></div><div class="gcard"><div class="ck">✓</div><h3>Sorting, Product Count and Filter Drawer</h3><p>Eight sort options (best selling, price, date…), a "9 Products" count and a filter drawer.</p></div><div class="gcard"><div class="ck">✓</div><h3>Hover Image Swap</h3><p>Verified on The Serum: hovering switches the bottle shot to a how-to-apply image. It's a good use of the second image.</p></div><div class="gcard"><div class="ck">✓</div><h3>EU Price Details on Every Card</h3><p>Each card shows the price, the unit price per litre and "Incl. VAT, free shipping worldwide", linked to the shipping policy. European shoppers expect this, and it's done consistently.</p></div><div class="gcard"><div class="ck">✓</div><h3>Coming Soon Products Marked and Placed Last</h3><p>The Mask, The Toner and The Soap carry a "Coming Soon" ribbon and sit at the end of the grid, after everything that can be bought.</p></div></div><h3 class="ghead"><span>06</span>Product Page — Images &amp; Pricing</h3><div class="good"><div class="gcard"><div class="ck">✓</div><h3>Clear, EU-Compliant Price Block</h3><p>"€295,00", the unit price "€5.900,00 / L", "Incl. VAT, free shipping worldwide" and a delivery-time line sit directly under the title.</p></div><div class="gcard"><div class="ck">✓</div><h3>Product Video and Zoom</h3><p>Five media items, including an application video as the second slide, and a full-screen zoom view. Video is the best way to show texture.</p></div><div class="gcard"><div class="ck">✓</div><h3>High-Resolution, Consistent Photography</h3><p>Studio bottle shots, texture close-ups and lifestyle images, all in the brand's palette.</p></div><div class="gcard"><div class="ck">✓</div><h3>Simple Size Display</h3><p>The single 50 ml size is shown as one clear pill; there is no unnecessary dropdown. Swatches aren't needed because the range has no colour or finish options.</p></div></div><h3 class="ghead"><span>07</span>Product Page — Buy Section &amp; Trust</h3><div class="good"><div class="gcard"><div class="ck">✓</div><h3>Button Directly Under Price and Quantity</h3><p>Price, size, quantity stepper and "Add to bag" form a short, logical block, and adding opens the cart drawer instantly.</p></div><div class="gcard"><div class="ck">✓</div><h3>&quot;(1 in bag)&quot; Feedback</h3><p>After adding, the quantity label reads "Quantity: (1 in bag)", so the shopper knows the product is already in the bag.</p></div><div class="gcard"><div class="ck">✓</div><h3>No Fake Urgency</h3><p>No countdowns and no "only 2 left" counters. For a luxury brand, that restraint protects trust.</p></div><div class="gcard"><div class="ck">✓</div><h3>Shipping and VAT Stated Before the Button</h3><p>"Incl. VAT, free shipping worldwide" and the delivery line link to the shipping policy, so the total holds no surprise.</p></div></div><h3 class="ghead"><span>08</span>Product Page — Description &amp; Cross-sell</h3><div class="good"><div class="gcard"><div class="ck">✓</div><h3>Full Ingredient Transparency</h3><p>The role of each active is explained and the full INCI list follows. Informed luxury buyers look for exactly this; it only needs structure.</p></div><div class="gcard"><div class="ck">✓</div><h3>Clinical Testing Explained</h3><p>"Dermatologically tested in a clinical skin compatibility study on 50 adult volunteers (ages 18–63), including sensitive, allergy-prone, and eczema-prone skin" is specific and credible.</p></div><div class="gcard"><div class="ck">✓</div><h3>Clear Usage Instructions</h3><p>"Morning and evening after cleansing, apply 2–3 drops to the face, neck, and décolleté" tells the buyer exactly how to use the product.</p></div><div class="gcard"><div class="ck">✓</div><h3>A Cross-Sell Block Exists</h3><p>"You may also like" shows four products with prices and unit prices, so turning it into a ritual builder is quick.</p></div></div><h3 class="ghead"><span>09</span>Product Page — Reviews &amp; Social Proof</h3><div class="good"><div class="gcard"><div class="ck">✓</div><h3>Excellent Rating Data Already Exists</h3><p>Every reviewed product scores 5.0★. That is rare, and it costs nothing to show it again.</p></div><div class="gcard"><div class="ck">✓</div><h3>Third-Party Trust Badge</h3><p>The TrustedSite certification badge is visible on every page.</p></div><div class="gcard"><div class="ck">✓</div><h3>Strong Proof Assets to Reuse</h3><p>An industry award, a documented skin study and named stockists are better proof than most brands have. Blocks 3 and 6 put them where buyers see them.</p></div></div><h3 class="ghead"><span>10</span>Shopping Cart &amp; Checkout</h3><div class="good"><div class="gcard"><div class="ck">✓</div><h3>Ajax Cart Drawer</h3><p>"Add to bag" opens a slide-out drawer instantly, so the shopper never leaves the product page.</p></div><div class="gcard"><div class="ck">✓</div><h3>One-Click Quantity and Remove</h3><p>Plus/minus stepper and "Remove" on every line, in the drawer and on the cart page.</p></div><div class="gcard"><div class="ck">✓</div><h3>Total, VAT and Free Shipping Clear Before Checkout</h3><p>"Total €295,00 — Incl. VAT, free shipping worldwide". A free-shipping progress bar isn't needed because every order ships free, and the checkout confirmed "FREE".</p></div><div class="gcard"><div class="ck">✓</div><h3>No Promo-Code Field in the Cart</h3><p>Without a coupon box, shoppers aren't sent off to search for codes.</p></div><div class="gcard"><div class="ck">✓</div><h3>Express Wallets</h3><p>Shop Pay, PayPal and Google Pay on the cart page and at the top of the checkout.</p></div><div class="gcard"><div class="ck">✓</div><h3>Local Currency and Methods at Checkout</h3><p>Euros for EU addresses, Swiss francs with Swiss VAT shown for Switzerland, and MobilePay for Finland. Shoppers pay in their own currency.</p></div><div class="gcard"><div class="ck">✓</div><h3>Solid Shopify Checkout</h3><p>One-page checkout with guest checkout, Google address autocomplete, "All transactions are secure and encrypted", and links to refund, shipping, privacy, terms and the legal notice.</p></div></div><h3 class="ghead"><span>11</span>Mobile — Homepage &amp; Navigation</h3><div class="good"><div class="gcard"><div class="ck">✓</div><h3>Hamburger Menu With Working Sub-Levels</h3><p>Tapping SHOP opens its sub-menu with a back arrow, as it should on touch screens.</p></div><div class="gcard"><div class="ck">✓</div><h3>Sticky Header on Mobile</h3><p>Tested by scrolling down and back up: the header with menu, search, wishlist and bag stays available.</p></div><div class="gcard"><div class="ck">✓</div><h3>No Horizontal Scrolling</h3><p>The page width is exactly 390 px, so nothing overflows the screen.</p></div><div class="gcard"><div class="ck">✓</div><h3>No Full-Screen Popups</h3><p>Only the cookie banner appears on arrival, as a bar at the bottom.</p></div><div class="gcard"><div class="ck">✓</div><h3>Search, Wishlist and Bag in the Mobile Header</h3><p>All key actions are reachable with one tap from the top of every page.</p></div></div><h3 class="ghead"><span>12</span>Mobile — Product Page</h3><div class="good"><div class="gcard"><div class="ck">✓</div><h3>Swipeable Gallery</h3><p>A native scroll-snap slider with five slides and a progress indicator, so swiping feels natural.</p></div><div class="gcard"><div class="ck">✓</div><h3>Numeric Keypad for Quantity</h3><p>The quantity field is <code>type="number"</code>, so phones open the number pad.</p></div><div class="gcard"><div class="ck">✓</div><h3>No 300 ms Tap Delay</h3><p>The viewport is set to <code>width=device-width, initial-scale=1</code>, so taps respond instantly.</p></div><div class="gcard"><div class="ck">✓</div><h3>Mobile-Friendly Checkout</h3><p>Shopify's checkout with Shop Pay, PayPal and Google Pay, and address fields with autofill and autocomplete.</p></div></div><h3 class="ghead"><span>13</span>Speed &amp; Technical</h3><div class="good"><div class="gcard"><div class="ck">✓</div><h3>Fast Server Response</h3><p>Time to first byte was 24 ms in our browser test; Lighthouse rates the document latency as fast, compressed and redirect-free.</p></div><div class="gcard"><div class="ck">✓</div><h3>No Layout Shift on Home and Product Pages</h3><p>CLS 0 on the homepage and The Serum, so nothing jumps while the shopper reads or taps.</p></div><div class="gcard"><div class="ck">✓</div><h3>Lazy Loading</h3><p>17 of 24 homepage images use <code>loading="lazy"</code>, so the photography below the fold doesn't compete with the first screen.</p></div><div class="gcard"><div class="ck">✓</div><h3>Correct H1 Structure</h3><p>The homepage has exactly one H1 ("Skin Health. Made Visible."), and the collection and product pages use their own names as H1.</p></div><div class="gcard"><div class="ck">✓</div><h3>Shopify Image CDN</h3><p>Responsive image sizes from Shopify's CDN, with the logo served as AVIF, keep most photography light.</p></div></div><h3 class="ghead"><span>14</span>Marketing — Popups &amp; Email Capture</h3><div class="good"><div class="gcard"><div class="ck">✓</div><h3>Loyalty Programme</h3><p>"SWISS DETOX LOYALTY": 50 points for creating an account and a €15 reward, available on every page.</p></div><div class="gcard"><div class="ck">✓</div><h3>Live Chat</h3><p>Shopify Inbox chat is available on every page, so a hesitant buyer can ask before purchasing.</p></div><div class="gcard"><div class="ck">✓</div><h3>No Fake Timers or Aggressive Popups</h3><p>No countdowns and no interrupting overlays, which suits a luxury brand.</p></div><div class="gcard"><div class="ck">✓</div><h3>GDPR Cookie Banner</h3><p>A clear bottom banner with equal "Accept" and "Decline" buttons, and a way to change the choice later.</p></div></div><h3 class="ghead"><span>15</span>Marketing — Email Automations &amp; Analytics</h3><div class="good"><div class="gcard"><div class="ck">✓</div><h3>Google Analytics 4, Google Ads and Merchant Center Connected</h3><p>The Google &amp; YouTube app sends page views and Shopify events to GA4, Google Ads (AW-747401574) and Merchant Center analytics.</p></div><div class="gcard"><div class="ck">✓</div><h3>Consent Mode Tied to the Cookie Banner</h3><p>Google hits carry consent-mode signals that change after "Accept", so measurement follows the visitor's choice.</p></div><div class="gcard"><div class="ck">✓</div><h3>Clear Consent Wording</h3><p>The newsletter text states how to withdraw consent at any time.</p></div></div>
+</section>
+
+<section class="slide" id="price">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <div class="shead"><h2>Pricing</h2></div>
+  <div class="plist" style="max-width:900px;margin-top:10px"><div class="prow" style="padding:22px 0;align-items:baseline"><i></i><span style="font:700 24px/1.3 'Montserrat',sans-serif">Critical — must fix</span><em style="font-size:15px">33.5 h · $40/h</em><b style="font-size:28px">$1,340</b></div><div class="prow" style="padding:22px 0;align-items:baseline"><i></i><span style="font:700 24px/1.3 'Montserrat',sans-serif">Medium — should fix</span><em style="font-size:15px">62 h · $40/h</em><b style="font-size:28px">$2,480</b></div><div class="prow" style="padding:22px 0;align-items:baseline"><i></i><span style="font:700 24px/1.3 'Montserrat',sans-serif">Low — nice to have</span><em style="font-size:15px">15 h · $40/h</em><b style="font-size:28px">$600</b></div>
+    <div class="prow total" style="padding:22px 0;align-items:baseline;border-bottom:0"><i></i><span style="font:800 24px/1.3 'Montserrat',sans-serif">Total</span><em style="font-size:15px">110.5 h</em><b style="font-size:32px">$4,420</b></div>
+  </div>
+  <p class="fine-note" style="max-width:900px;margin-top:22px">Hours are averages and the price is fixed at $40/hour, for development implementation only. Approximate timeline with one developer: about 4–5 weeks end-to-end (Critical in week 1, Medium in weeks 2–4, Low in week 5). Not included: content creation (photography, video, review-quote selection, e-mail copy and new translations), legal review of the checkout and policy wording, tax registrations for new markets such as the UK or Norway, and third-party subscription costs (reviews, e-mail and loyalty apps). Suggested order: Critical → Medium → Low.</p>
+</section>
+
+<section class="slide end">
+  <img class="silk sm" src="img/silk.png" alt="">
+  <h2>Next step</h2>
+  <p>About 4–5 weeks with one developer: Critical fixes live in week 1, Medium in weeks 2–4, Low in week 5 (110.5 hrs in total, fixed price $4,420).</p>
+  <p style="margin-top:12px">We start with the Critical list: 33.5 hours of work ($1,340).</p>
+</section>
+</body>
+</html>
